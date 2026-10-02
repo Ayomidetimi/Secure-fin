@@ -1,0 +1,28 @@
+.side-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
+  background-color: rgba(24, 20, 56, 1);
+  color: white;
+  height: 100vh;
+  bottom: 10px;
+  font-size: 13px;
+  width: fit-content;
+}
+
+.sidebar {
+  display: flex;
+  cursor: pointer;
+  margin: 10px;
+  width: 120px;
+  align-items: start;
+}
+
+.item-icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+  margin-right: 10px;
+}

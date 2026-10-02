@@ -1,8 +1,8 @@
+import DashboardSideBar from "./dashboardSideBar";
+
 function DashboardPage() {
   return(
-    <div className="hello">
-      HOW ARE YOU
-    </div>
+    <DashboardSideBar />
   )
 };
 export default DashboardPage;
