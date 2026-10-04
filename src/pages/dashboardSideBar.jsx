@@ -27,6 +27,12 @@ function DashboardSideBar() {
 
   return (
     <nav className="side-container">
+
+      <div className="brand">
+        <div className="brand-logo">ii</div>
+        <span>SecureFin</span>
+      </div>
+
       {menuItems.map((item) => (
         <div className="sidebar" key={item.name}>
           <img className="item-icon" src={item.icon} alt="" />

@@ -1,22 +1,44 @@
 .side-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: start;
   background-color: rgba(24, 20, 56, 1);
   color: white;
-  height: 100vh;
-  bottom: 10px;
   font-size: 13px;
   width: fit-content;
+  height: 100vh;
+  bottom: 0;
+}
+
+.brand {
+  display: flex;
+  gap: 10px;
+  margin: 5px 10px;
+  width: 125px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  padding-right: 30px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .sidebar {
   display: flex;
+  gap: 10px;
   cursor: pointer;
-  margin: 10px;
-  width: 120px;
-  align-items: start;
+  margin: 5px 10px;
+  width: 125px;
+  height: 40px;
+  align-items: center;
+  padding-right: 30px;
+  border-radius: 6px;
+}
+
+.sidebar:active {
+  
+  background-color: rgb(91, 50, 214);
 }
 
 .item-icon {
@@ -24,5 +46,6 @@
   width: 18px;
   height: 18px;
   filter: brightness(0) invert(1);
-  margin-right: 10px;
+  margin-left: 10px;
+  align-items: center;
 }

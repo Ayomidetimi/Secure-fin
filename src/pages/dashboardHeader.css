@@ -1,0 +1,43 @@
+.dashboard-header-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-top: 12px;
+}
+
+.left-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  justify-items: start;
+  margin-left: 28px;
+}
+
+.left-section div {
+  font-size: 14px;
+} 
+
+.left-section p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.right-section {
+  display: flex;
+  gap: 12px;
+  margin-right: 20px;
+}
+
+.right-section img {
+  width: 35px;
+  height: 35px;
+}
+
+.right-section div {
+  background-color: rgb(91, 50, 214);
+  border-radius: 50px;
+  height: 30px;
+  width: 30px;
+  padding: 3px;
+  color: white;
+}
