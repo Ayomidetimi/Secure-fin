@@ -1,5 +1,6 @@
 import DashboardSideBar from "./dashboardSideBar";
 import DashboardHeader from './dashboardHeader.jsx';
+import DashboardDisplay from "./dashboardDisplay.jsx";
 import './dashboardPage.css'
 
 function DashboardPage() {
@@ -8,7 +9,8 @@ function DashboardPage() {
     <DashboardSideBar />
 
     <div className="main-container">
-      <DashboardHeader/>
+      <DashboardHeader />
+      <DashboardDisplay />
     </div>
 
     </div>
