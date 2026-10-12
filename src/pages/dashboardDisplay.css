@@ -1,16 +1,22 @@
 .dashboard-display-container {
   display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  background-color: rgb(91, 50, 214);
+  min-height: 150px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  height: 190px;
+  gap: 20px;
+}
+
+.left-display {
+  display: grid;
   grid-template-columns: 1fr;
   gap: 10px;
   justify-items: start;
-  background-color: rgb(91, 50, 214);
-  padding-top: 20px;
-  height: 150px;
-  padding-bottom: 20px;
-  margin: 10px;
-  padding-left: 20px;
-  border-radius: 10px;
-  color: white;
+  min-width: 0;
 }
 
 .total-balance {
@@ -33,23 +39,37 @@
 
 .total-balance-amount {
   display: flex;
-  height: 35px;
-  gap: 5px;
+  align-items: center;
   filter: brightness(0) invert(1);
 }
 
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: nowrap;
+}
+
+.total-balance-amount,
+.hide-balance {
+  flex-shrink: 0;
+}
 .amount p{
   font-size: 33px;
   font-weight: bolder;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .total-naira {
   width: 30px;
   height: 30px;
+  flex-shrink: 0;
 }
 
 .hide-balance {
   display: flex;
+  gap: 5px;
 }
 
 .hide-balance img {
@@ -59,26 +79,78 @@
 }
 
 .available-balance {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3px;
-  justify-items: start;
-  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.available-balance > p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.available-amount {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .available-balance-amount {
   display: flex;
+  height: 25px;
   gap: 5px;
   filter: brightness(0) invert(1);
   align-items: center;
   height: 30px;
 }
 
+.available-balance-amount p {
+  margin: 0;
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.available-amount .hide-balance {
+  display: flex;
+  align-items: center;
+  height: 25px;
+  gap: 5px;
+}
+
+.available-amount .hide-balance img {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
 .available-naira {
   width: 15px;
   height: 15px;
+  flex-shrink: 0;
 }
 .available-balance p{
   font-size: 15px;
   font-weight: bolder;
+}
+
+.right-display {
+  display: flex;
+  align-items: last baseline;
+  flex-shrink: 0;
+  gap: 10px;
+}
+
+.add-money,
+.send-money {
+  background-color: white;
+  color: rgb(91, 50, 214);
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 }
