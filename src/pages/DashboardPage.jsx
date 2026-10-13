@@ -4,14 +4,16 @@ import DashboardDisplay from "./dashboardDisplay.jsx";
 import './dashboardPage.css'
 
 function DashboardPage() {
-  return(
+  return (
     <div className="dashboard-container">
-    <DashboardSideBar />
+      <div className="sidebar-container">
+        <DashboardSideBar />
+      </div>
 
-    <div className="main-container">
-      <DashboardHeader />
-      <DashboardDisplay />
-    </div>
+      <div className="main-container">
+        <DashboardHeader />
+        <DashboardDisplay />
+      </div>
 
     </div>
   )

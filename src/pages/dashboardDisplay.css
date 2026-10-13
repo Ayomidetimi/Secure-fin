@@ -154,3 +154,35 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .available-balance {
+    display: none;
+  }
+
+  .right-display {
+    display: none;
+  }
+
+  .dashboard-display-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 120px;
+    padding: 15px;
+  }
+
+  .left-display {
+    gap: 10px;
+  }
+
+  .amount p {
+    font-size: 26px;
+  }
+
+  .total-naira {
+    width: 24px;
+    height: 24px;
+  }
+}
