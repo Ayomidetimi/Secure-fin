@@ -5,7 +5,6 @@
 }
 .quick-actions-container {
   display: flex;
-  background-color: black;
 }
 .quick-actions-container img {
   width: 40px;
