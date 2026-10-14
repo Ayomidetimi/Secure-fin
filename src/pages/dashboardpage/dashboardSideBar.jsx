@@ -1,14 +1,14 @@
 import './dashboardSideBar.css';
-import homeIcon from '../assets/home-icon.svg';
-import transferIcon from '../assets/transfer-icon.svg';
-import transactionsIcon from '../assets/transaction-icon.svg';
-import cardsIcon from '../assets/card-icon.svg';
-import beneficiariesIcon from '../assets/beneficiaries-icon.svg';
-import savingsIcon from '../assets/savings-icon.svg';
-import billsIcon from '../assets/bills-icon.svg';
-import profileIcon from '../assets/profile-icon.svg';
-import settingsIcon from '../assets/settings-icon.svg';
-import logoutIcon from '../assets/logout-icon.svg';
+import homeIcon from '../../assets/home-icon.svg';
+import transferIcon from '../../assets/transfer-icon.svg';
+import transactionsIcon from '../../assets/transaction-icon.svg';
+import cardsIcon from '../../assets/card-icon.svg';
+import beneficiariesIcon from '../../assets/beneficiaries-icon.svg';
+import savingsIcon from '../../assets/savings-icon.svg';
+import billsIcon from '../../assets/bills-icon.svg';
+import profileIcon from '../../assets/profile-icon.svg';
+import settingsIcon from '../../assets/settings-icon.svg';
+import logoutIcon from '../../assets/logout-icon.svg';
 
 
 function DashboardSideBar() {

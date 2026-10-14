@@ -1,6 +1,6 @@
-import EyeSolidIcon from '../assets/eye-solid-full.svg';
-import EyeSlashIcon from '../assets/eye-slash-icon.png';
-import NairaIcon from '../assets/naira-icon.svg';
+import EyeSolidIcon from '../../assets/eye-solid-full.svg';
+import EyeSlashIcon from '../../assets/eye-slash-icon.png';
+import NairaIcon from '../../assets/naira-icon.svg';
 import { useState } from 'react';
 import './dashboardDisplay.css'
 

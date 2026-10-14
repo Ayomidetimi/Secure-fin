@@ -1,4 +1,4 @@
-import bellIcon from '../assets/bell-icon.svg';
+import bellIcon from '../../assets/bell-icon.svg';
 import './dashboardHeader.css';
 
 function DashboardHeader() {

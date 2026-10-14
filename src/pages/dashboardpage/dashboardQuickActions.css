@@ -1,0 +1,13 @@
+.dashboard-quick-actions {
+  display: grid;
+  align-items: end;
+  grid-template-columns: 1fr;
+}
+.quick-actions-container {
+  display: flex;
+  background-color: black;
+}
+.quick-actions-container img {
+  width: 40px;
+  height: 40px;
+}

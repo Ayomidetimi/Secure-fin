@@ -1,5 +1,5 @@
-import eyeIcon from '../assets/eye-solid-full.svg';
-import eyeSlash from '../assets/eye-slash-icon.png';
+import eyeIcon from '../../assets/eye-solid-full.svg';
+import eyeSlash from '../../assets/eye-slash-icon.png';
 import { useState } from "react";
 import './registerPage.css';
 import { Link } from 'react-router-dom';
