@@ -1,10 +1,14 @@
 .dashboard-quick-actions {
   display: grid;
-  align-items: end;
-  grid-template-columns: 1fr;
+  justify-items: start;
+  margin: 10px;
 }
 .quick-actions-container {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
+  cursor: pointer;
+  
 }
 .quick-actions-container img {
   width: 40px;
