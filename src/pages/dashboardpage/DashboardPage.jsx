@@ -3,6 +3,7 @@ import DashboardHeader from './dashboardHeader.jsx';
 import DashboardDisplay from "./dashboardDisplay.jsx";
 import './dashboardPage.css'
 import DashboardQuickActions from "./dashboardQuickActions.jsx";
+import DashboardTransactions from "./dashboardTransactions.jsx";
 
 function DashboardPage() {
   return (
@@ -15,6 +16,7 @@ function DashboardPage() {
         <DashboardHeader />
         <DashboardDisplay />
         <DashboardQuickActions />
+        <DashboardTransactions />
       </div>
 
     </div>
