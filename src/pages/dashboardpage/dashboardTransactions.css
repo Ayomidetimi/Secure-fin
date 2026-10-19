@@ -9,38 +9,40 @@
 
 .transactions-container {
   display: grid;
-  gap: 15px;
   width: 100%;
+  gap: 2px;
 }
 
 .transaction-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px;
-  background-color: rgba(91, 50, 214, 0.1);
-  border-radius: 8px;
-  width: 100%;
+  width: 80%;
+  border : 1px solid rgba(211, 211, 211, 1);
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 5px;
 }
 
 .transaction-details {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 28px;
+  
 }
 
+.transaction-details p:first-of-type {
+  font-size: 16px;
+  width: 200px;
+  font-weight: 600;
+  
+}
+
+.transaction-details p:last-of-type {
+  font-size: 14px;
+  color: gray;
+}
 .transaction-details img {
-  width: 40px;
-  height: 40px;
-}
-
-.transaction-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.transaction-info p {
-  margin: 0;
+  width: 20px;
+  height: 20px;
 }

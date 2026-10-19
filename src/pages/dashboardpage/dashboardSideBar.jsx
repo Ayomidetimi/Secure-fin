@@ -9,12 +9,13 @@ import billsIcon from '../../assets/bills-icon.svg';
 import profileIcon from '../../assets/profile-icon.svg';
 import settingsIcon from '../../assets/settings-icon.svg';
 import logoutIcon from '../../assets/logout-icon.svg';
+import { NavLink } from 'react-router-dom';
 
 
 function DashboardSideBar() {
   const menuItems = [
     { name: "Dashboard", icon: homeIcon },
-    { name: "Transfer", icon: transferIcon },
+    { name: "Transfer", icon: transferIcon, path: "/transfer" },
     { name: "Transactions", icon: transactionsIcon },
     { name: "Cards", icon: cardsIcon },
     { name: "Beneficiaries", icon: beneficiariesIcon },
@@ -34,10 +35,14 @@ function DashboardSideBar() {
       </div>
 
       {menuItems.map((item) => (
-        <div className="sidebar" key={item.name}>
+        <NavLink 
+          to={item.path} 
+          className="sidebar" 
+          key={item.name}
+        >
           <img className="item-icon" src={item.icon} alt="" />
           <p>{item.name}</p>
-        </div>
+        </NavLink>
       ))}
     </nav>
   );

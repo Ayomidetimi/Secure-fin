@@ -25,15 +25,16 @@ function DashboardTransactions() {
 
       <div className="transactions-container">
         {transactions.map((transaction, index) => (
-          <div key={index} className="transaction-item">
+          <div 
+            key={index} 
+            className="transaction-item"
+          >
 
             <div className="transaction-details">
-              <img src={transaction.img} alt="" />
-
-              <div className="transaction-info">
+                <img src={transaction.img} alt="" />
                 <p>{transaction.title}</p>
                 <p>{transaction.transactionType}</p>
-              </div>
+              
             </div>
 
             <p className="transaction-amount">
