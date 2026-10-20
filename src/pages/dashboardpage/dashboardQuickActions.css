@@ -11,10 +11,6 @@
   margin-left: 10px;
 }
 
-.quick-actions-container div {
-  cursor: pointer;
-}
-
 .quick-actions-container p {
   font-size: 14px;
   font-weight: bold;
@@ -25,4 +21,5 @@
   height: 50px;
   background-color: rgba(91, 50, 214, 0.1);
   border-radius: 10px;
+  cursor: pointer;
 }
