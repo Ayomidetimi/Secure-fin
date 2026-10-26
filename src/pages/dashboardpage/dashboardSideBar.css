@@ -41,6 +41,11 @@
   background-color: rgb(91, 50, 214);
 }
 
+.sidebar-active {
+  background-color: rgba(91, 50, 214, 0.3);
+  outline: 1px solid rgba(116, 91, 232, 0.55);
+}
+
 .item-icon {
   width: 18px;
   height: 18px;

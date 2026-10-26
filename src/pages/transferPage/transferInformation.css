@@ -1,0 +1,84 @@
+.information-heading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.information-badge {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--transfer-accent);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.transfer-information ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.transfer-information li {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.benefit-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.benefit-green {
+  background: rgba(24, 154, 97, 0.2);
+  color: #2dd18a;
+}
+
+.benefit-gold {
+  background: rgba(220, 157, 24, 0.17);
+  color: #ffc44b;
+}
+
+.benefit-purple {
+  background: rgba(129, 86, 207, 0.2);
+  color: #c0a5ff;
+}
+
+.benefit-blue {
+  background: rgba(53, 113, 220, 0.2);
+  color: #67a7ff;
+}
+
+.transfer-information li strong,
+.transfer-information li small {
+  display: block;
+}
+
+.transfer-information li strong {
+  color: #f1eef8;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.transfer-information li small {
+  margin-top: 3px;
+  color: var(--transfer-muted);
+  font-size: 10px;
+  line-height: 1.45;
+}

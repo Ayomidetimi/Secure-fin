@@ -37,7 +37,7 @@ function DashboardSideBar() {
       {menuItems.map((item) => (
         <NavLink 
           to={item.path} 
-          className="sidebar" 
+          className={({ isActive }) => `sidebar${isActive ? ' sidebar-active' : ''}`}
           key={item.name}
         >
           <img className="item-icon" src={item.icon} alt="" />
