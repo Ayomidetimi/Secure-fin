@@ -16,46 +16,66 @@ function TransferForm({
   onEdit,
 }) {
   if (isReviewing) {
+    const formattedAmount = Number(amount).toLocaleString('en-NG', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    const totalAmount = (Number(amount) + 10).toLocaleString('en-NG', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
     return (
       <section className="transfer-card" aria-labelledby="transfer-form-title">
-        <div className="transfer-section-heading">
-          <div className="transfer-heading-icon" aria-hidden="true">✓</div>
-          <div>
-            <h2 id="transfer-form-title">Review transfer</h2>
-            <p>Make sure the details below are correct.</p>
-          </div>
-        </div>
-
-        <div className="review-amount">
-          <span>Transfer amount</span>
-          <strong>₦{Number(amount).toLocaleString('en-NG', { minimumFractionDigits: 2 })}</strong>
+        <div className="review-card-heading">
+          <h2 id="transfer-form-title">Transfer Details</h2>
+          <button type="button" onClick={onEdit}><span aria-hidden="true">✎</span> Edit</button>
         </div>
         <dl className="review-details">
-          <div>
-            <dt>Beneficiary</dt>
-            <dd>{selectedBeneficiary?.name}</dd>
-          </div>
-          <div>
-            <dt>Transfer type</dt>
+          <div className="review-detail-row">
+            <span className="review-detail-icon" aria-hidden="true">♙</span>
+            <dt>Transfer Type</dt>
             <dd>{selectedBeneficiary?.type === 'user' ? 'SecureFin User' : 'External Bank'}</dd>
           </div>
-          <div>
+          <div className="review-detail-row">
+            <span className="review-detail-icon" aria-hidden="true">▤</span>
             <dt>Bank</dt>
             <dd>{selectedBeneficiary?.bank}</dd>
           </div>
-          <div>
-            <dt>Account number</dt>
+          <div className="review-detail-row">
+            <span className="review-detail-icon" aria-hidden="true">♙</span>
+            <dt>Account Number</dt>
             <dd>{selectedBeneficiary?.account}</dd>
           </div>
-          <div>
-            <dt>Note</dt>
-            <dd>{description || 'No note added'}</dd>
+          <div className="review-detail-row account-name-row">
+            <span className="review-detail-icon" aria-hidden="true">♙</span>
+            <dt>Account Name</dt>
+            <dd>
+              {selectedBeneficiary?.name}
+              <small className="verified-badge"><span aria-hidden="true">●</span> Account verified</small>
+            </dd>
+          </div>
+          <div className="review-detail-row">
+            <span className="review-detail-icon" aria-hidden="true">₦</span>
+            <dt>Amount</dt>
+            <dd>₦{formattedAmount}</dd>
+          </div>
+          <div className="review-detail-row">
+            <span className="review-detail-icon" aria-hidden="true">▤</span>
+            <dt>Description</dt>
+            <dd>{description || 'No description'}</dd>
+          </div>
+          <div className="review-detail-row">
+            <span className="review-detail-icon review-percent" aria-hidden="true">%</span>
+            <dt>Transaction Fee</dt>
+            <dd>₦10.00</dd>
           </div>
         </dl>
-        <p className="review-notice">This is a preview. No money has been sent.</p>
-        <button className="transfer-submit transfer-secondary-action" type="button" onClick={onEdit}>
-          Edit transfer
-        </button>
+        <div className="review-total">
+          <span className="review-total-icon" aria-hidden="true">▣</span>
+          <strong>Total Amount</strong>
+          <strong>₦{totalAmount}</strong>
+        </div>
       </section>
     );
   }

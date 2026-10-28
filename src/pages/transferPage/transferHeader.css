@@ -88,7 +88,35 @@
 }
 
 .transfer-user-name {
-  font-size: 18px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.transfer-page:has(.transfer-main-review) .transfer-toolbar {
+  min-height: 60px;
+  padding-right: 20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #f0f1f8;
+  background: #fff;
+}
+
+.transfer-page:has(.transfer-main-review) .transfer-search {
+  width: min(100%, 413px);
+}
+
+.transfer-page:has(.transfer-main-review) .transfer-search {
+  border-color: #f0eff9;
+  border-radius: 9px;
+  background: #f6f6fc;
+}
+
+.transfer-page:has(.transfer-main-review) .transfer-user-avatar {
+  background: #e7e5ff;
+  color: #6048ff;
+}
+
+.transfer-page:has(.transfer-main-review) .transfer-user-name {
+  color: #141a3b;
 }
 
 

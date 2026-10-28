@@ -17,6 +17,7 @@ function TransferMain() {
   const [description, setDescription] = useState('');
   const [isReviewing, setIsReviewing] = useState(false);
   const [transferType, setTransferType] = useState('user');
+  const [confirmationMessage, setConfirmationMessage] = useState('');
 
   const selectedBeneficiary = beneficiaries.find(
     (beneficiary) => beneficiary.id === beneficiaryId,
@@ -32,17 +33,33 @@ function TransferMain() {
     const beneficiary = beneficiaries.find((item) => item.id === id);
     if (beneficiary) setTransferType(beneficiary.type);
     setIsReviewing(false);
+    setConfirmationMessage('');
   };
 
   const changeTransferType = (type) => {
     setTransferType(type);
     setBeneficiaryId('');
     setIsReviewing(false);
+    setConfirmationMessage('');
+  };
+
+  const cancelReview = () => {
+    setIsReviewing(false);
+    setConfirmationMessage('');
   };
 
   return (
-    <main className="transfer-main">
-      <div className="transfer-content">
+    <main className={`transfer-main${isReviewing ? ' transfer-main-review' : ''}`}>
+      {isReviewing && (
+        <div className="review-page-heading">
+          <button type="button" className="review-back" onClick={cancelReview}>
+            <span aria-hidden="true">←</span> Back
+          </button>
+          <h1>Review Transfer</h1>
+          <p>Please confirm the details below before completing your transfer.</p>
+        </div>
+      )}
+      <div className={`transfer-content${isReviewing ? ' review-content' : ''}`}>
         <TransferForm
           beneficiaries={beneficiaries}
           beneficiaryId={beneficiaryId}
@@ -56,17 +73,59 @@ function TransferMain() {
           onAmountChange={setAmount}
           onDescriptionChange={setDescription}
           onReview={reviewTransfer}
-          onEdit={() => setIsReviewing(false)}
+          onEdit={cancelReview}
         />
-        <div className="transfer-aside">
-          <RecentRecipients
-            beneficiaries={beneficiaries}
-            beneficiaryId={beneficiaryId}
-            onSelect={selectBeneficiary}
-          />
-          <TransferInformation />
-        </div>
+        {isReviewing ? (
+          <div className="transfer-aside review-aside">
+            <section className="transfer-panel paying-from" aria-labelledby="paying-from-title">
+              <div className="paying-from-heading">
+                <h2 id="paying-from-title">Paying From</h2>
+                <button type="button" onClick={cancelReview}>Edit</button>
+              </div>
+              <div className="paying-from-account">
+                <span className="paying-from-icon" aria-hidden="true">▣</span>
+                <span className="paying-from-name">
+                  <strong>Main Account</strong>
+                  <small>Available balance</small>
+                </span>
+                <span className="paying-from-balance">
+                  <strong>₦12,450.75</strong>
+                  <small>•••• 6789</small>
+                </span>
+              </div>
+            </section>
+            <TransferInformation isReviewing />
+          </div>
+        ) : (
+          <div className="transfer-aside">
+            <RecentRecipients
+              beneficiaries={beneficiaries}
+              beneficiaryId={beneficiaryId}
+              onSelect={selectBeneficiary}
+            />
+            <TransferInformation />
+          </div>
+        )}
       </div>
+      {isReviewing && (
+        <div className="review-actions">
+          <button type="button" className="review-cancel" onClick={cancelReview}>
+            Cancel
+          </button>
+          <button
+            type="button"
+            className="review-confirm"
+            onClick={() => setConfirmationMessage('Transfer confirmation is not available yet. No money has been sent.')}
+          >
+            <span aria-hidden="true">↗</span> Confirm Transfer
+          </button>
+          {confirmationMessage && (
+            <p className="review-confirmation-message" role="status" aria-live="polite">
+              {confirmationMessage}
+            </p>
+          )}
+        </div>
+      )}
     </main>
   );
 }

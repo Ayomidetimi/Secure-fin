@@ -2,6 +2,51 @@
   padding: 0 30px 32px;
 }
 
+.transfer-main-review {
+  min-height: calc(100vh - 62px);
+  box-sizing: border-box;
+  padding: 12px 28px 28px;
+  background: #f7f8ff;
+  color: #141a3b;
+}
+
+.review-page-heading {
+  max-width: 1120px;
+  margin: 0 auto 17px;
+}
+
+.review-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #626b9a;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+}
+
+.review-back span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.review-page-heading h1 {
+  margin: 8px 0 2px;
+  color: #101735;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.review-page-heading p {
+  color: #626b9a;
+  font-size: 14px;
+}
+
 .transfer-content {
   display: grid;
   width: 100%;
@@ -10,6 +55,12 @@
   align-items: start;
   gap: 16px;
   margin: 0 auto;
+}
+
+.review-content {
+  max-width: 1120px;
+  grid-template-columns: minmax(0, 1.53fr) minmax(280px, 1fr);
+  gap: 14px;
 }
 
 .transfer-card,
@@ -44,6 +95,154 @@
   gap: 16px;
 }
 
+.review-aside {
+  gap: 14px;
+}
+
+.paying-from {
+  border: 1px solid #f0eff9;
+  border-radius: 10px;
+  background: #fff;
+  padding: 18px;
+}
+
+.paying-from-heading,
+.paying-from-account {
+  display: flex;
+  align-items: center;
+}
+
+.paying-from-heading {
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.paying-from-heading h2 {
+  color: #141a3b;
+  font-size: 16px;
+}
+
+.paying-from-heading button,
+.review-card-heading button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6048ff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.paying-from-account {
+  min-width: 0;
+  gap: 10px;
+  padding: 12px 10px;
+  border-radius: 8px;
+  background: #f3f2ff;
+}
+
+.paying-from-icon,
+.review-total-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 10px;
+  background: #e8e5ff;
+  color: #6048ff;
+  font-size: 19px;
+}
+
+.paying-from-name,
+.paying-from-balance {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.paying-from-name {
+  flex: 1;
+}
+
+.paying-from-balance {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.paying-from-name strong,
+.paying-from-balance strong {
+  color: #141a3b;
+  font-size: 12px;
+}
+
+.paying-from-name small,
+.paying-from-balance small {
+  color: #626b9a;
+  font-size: 11px;
+}
+
+.review-actions {
+  display: flex;
+  max-width: 1120px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 16px auto 0;
+}
+
+.review-actions button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.review-cancel {
+  width: 175px;
+  border: 1px solid #a798ff;
+  background: transparent;
+  color: #6048ff;
+}
+
+.review-confirm {
+  width: min(316px, 45vw);
+  border: 1px solid #6048ff;
+  background: #6048ff;
+  color: #fff;
+}
+
+.review-confirm > span {
+  font-size: 18px;
+}
+
+.review-confirmation-message {
+  flex-basis: 100%;
+  margin: 0;
+  color: #626b9a;
+  font-size: 13px;
+  text-align: center;
+}
+
+.transfer-main-review .transfer-card,
+.transfer-main-review .transfer-panel {
+  border: 1px solid #f0eff9;
+  border-radius: 10px;
+  background: #fff;
+  color: #141a3b;
+}
+
 @media (max-width: 960px) {
   .transfer-content {
     grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
@@ -61,6 +260,10 @@
     max-width: 620px;
   }
 
+  .review-content {
+    grid-template-columns: 1fr;
+  }
+
   .transfer-aside {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -73,6 +276,14 @@
     padding: 0 14px 24px;
   }
 
+  .transfer-main-review {
+    padding: 12px 14px 24px;
+  }
+
+  .review-page-heading h1 {
+    font-size: 24px;
+  }
+
   .transfer-aside {
     grid-template-columns: 1fr;
   }
@@ -80,5 +291,22 @@
   .transfer-card,
   .transfer-panel {
     padding: 14px;
+  }
+
+  .review-actions {
+    gap: 9px;
+  }
+
+  .review-actions button {
+    min-height: 48px;
+  }
+
+  .review-cancel {
+    width: 36%;
+  }
+
+  .review-confirm {
+    width: 64%;
+    font-size: 13px;
   }
 }
