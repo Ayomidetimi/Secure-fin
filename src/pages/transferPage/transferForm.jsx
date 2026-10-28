@@ -64,6 +64,8 @@ function TransferForm({
     (beneficiary) => beneficiary.type === transferType,
   );
 
+ 
+
   return (
     <section className="transfer-card" aria-labelledby="transfer-form-title">
       <div className="transfer-card-heading">
@@ -72,7 +74,7 @@ function TransferForm({
       </div>
       <form onSubmit={onReview}>
         <fieldset className="transfer-types">
-          <legend>Transfer to Type</legend>
+          <legend>Transfer Type</legend>
           <label className={`transfer-type-option${transferType === 'user' ? ' selected' : ''}`}>
             <span className="transfer-type-icon" aria-hidden="true">♙</span>
             <span>
@@ -104,19 +106,24 @@ function TransferForm({
         </fieldset>
 
         <div className="transfer-field">
-          <label htmlFor="beneficiary">Recipient</label>
+          <label htmlFor="beneficiary">Beneficiary</label>
           <select
             id="beneficiary"
             value={beneficiaryId}
-            onChange={(event) => onBeneficiaryChange(event.target.value)}
+            onChange={(event) => {onBeneficiaryChange(event.target.value); 
+            event.target.blur();  }}
             required
           >
             <option value="">
               {transferType === 'user' ? 'Select a SecureFin user' : 'Select a bank recipient'}
             </option>
             {visibleBeneficiaries.map((beneficiary) => (
-              <option key={beneficiary.id} value={beneficiary.id}>
-                {beneficiary.name} · {beneficiary.bank} · {beneficiary.account}
+              <option 
+                key={beneficiary.id} 
+                value={beneficiary.id}>
+                {beneficiary.name} · 
+                {beneficiary.bank} · 
+                {beneficiary.account}
               </option>
             ))}
           </select>
