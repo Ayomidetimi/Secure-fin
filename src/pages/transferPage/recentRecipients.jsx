@@ -4,10 +4,13 @@ function RecentRecipients({ beneficiaries, beneficiaryId, onSelect }) {
   return (
     <section className="transfer-panel recent-recipients" aria-labelledby="recent-recipients-title">
       <div className="panel-heading">
-        <h2 id="recent-recipients-title">Recent Recipients</h2>
+        <h2 id="recent-recipients-title">Saved Beneficiaries</h2>
         <button type="button" className="view-all-recipients">View all</button>
       </div>
       <div className="recipient-list">
+        {beneficiaries.length === 0 && (
+          <p className="no-beneficiaries">No matching beneficiaries found.</p>
+        )}
         {beneficiaries.map((beneficiary) => (
           <div className="recipient-row" key={beneficiary.id}>
             <span className={`recipient-avatar avatar-${beneficiary.color}`} aria-hidden="true">

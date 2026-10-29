@@ -1,5 +1,5 @@
 .transfer-main {
-  padding: 0 30px 32px;
+  padding: 14px 14px 24px;
 }
 
 .transfer-main-review {
@@ -51,9 +51,9 @@
   display: grid;
   width: 100%;
   max-width: 1120px;
-  grid-template-columns: minmax(0, 1.3fr) minmax(300px, 1fr);
+  grid-template-columns: minmax(0, 1.38fr) minmax(300px, 1fr);
   align-items: start;
-  gap: 16px;
+  gap: 12px;
   margin: 0 auto;
 }
 
@@ -65,25 +65,26 @@
 
 .transfer-card,
 .transfer-panel {
-  border: 1px solid #242236;
-  border-radius: 10px;
-  background: var(--transfer-panel);
+  border: 1px solid #f0eff9;
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(34, 41, 90, 0.025);
 }
 
 .transfer-card {
   min-width: 0;
-  padding: 16px;
+  padding: 12px;
 }
 
 .transfer-panel {
-  padding: 16px;
+  padding: 18px;
 }
 
 .transfer-card h2,
 .transfer-panel h2 {
   margin: 0;
-  color: var(--transfer-text);
-  font-size: 23px;
+  color: #141a3b;
+  font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.2px;
 }
@@ -92,7 +93,7 @@
   display: flex;
   min-width: 0;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .review-aside {
@@ -255,6 +256,10 @@
 }
 
 @media (max-width: 760px) {
+  .transfer-main {
+    padding: 14px 14px 24px;
+  }
+
   .transfer-content {
     grid-template-columns: 1fr;
     max-width: 620px;

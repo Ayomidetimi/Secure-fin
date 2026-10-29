@@ -4,12 +4,19 @@ function TransferForm({
   beneficiaries,
   beneficiaryId,
   selectedBeneficiary,
+  bankName,
+  accountNumber,
+  accountName,
+  verificationMessage,
   amount,
   description,
   isReviewing,
   transferType,
   onTransferTypeChange,
   onBeneficiaryChange,
+  onBankChange,
+  onAccountNumberChange,
+  onVerifyAccount,
   onAmountChange,
   onDescriptionChange,
   onReview,
@@ -40,19 +47,19 @@ function TransferForm({
           <div className="review-detail-row">
             <span className="review-detail-icon" aria-hidden="true">▤</span>
             <dt>Bank</dt>
-            <dd>{selectedBeneficiary?.bank}</dd>
+            <dd>{bankName || selectedBeneficiary?.bank || '—'}</dd>
           </div>
           <div className="review-detail-row">
             <span className="review-detail-icon" aria-hidden="true">♙</span>
             <dt>Account Number</dt>
-            <dd>{selectedBeneficiary?.account}</dd>
+            <dd>{accountNumber || selectedBeneficiary?.account || '—'}</dd>
           </div>
           <div className="review-detail-row account-name-row">
             <span className="review-detail-icon" aria-hidden="true">♙</span>
             <dt>Account Name</dt>
             <dd>
-              {selectedBeneficiary?.name}
-              <small className="verified-badge"><span aria-hidden="true">●</span> Account verified</small>
+              {accountName || selectedBeneficiary?.name || 'Not verified'}
+              {accountName && <small className="verified-badge"><span aria-hidden="true">●</span> Account verified</small>}
             </dd>
           </div>
           <div className="review-detail-row">
@@ -80,27 +87,25 @@ function TransferForm({
     );
   }
 
-  const visibleBeneficiaries = beneficiaries.filter(
+  const matchingBeneficiaries = beneficiaries.filter(
     (beneficiary) => beneficiary.type === transferType,
   );
-
- 
+  const availableBanks = [...new Set(
+    beneficiaries
+      .filter((beneficiary) => beneficiary.type === 'bank')
+      .map((beneficiary) => beneficiary.bank),
+  )];
 
   return (
     <section className="transfer-card" aria-labelledby="transfer-form-title">
       <div className="transfer-card-heading">
         <h2 id="transfer-form-title">Transfer Money</h2>
-        <p>Send Money Securely to other SecureFin users or external banks</p>
+        <p>Send money securely to other SecureFin users or external bank accounts.</p>
       </div>
       <form onSubmit={onReview}>
         <fieldset className="transfer-types">
           <legend>Transfer Type</legend>
           <label className={`transfer-type-option${transferType === 'user' ? ' selected' : ''}`}>
-            <span className="transfer-type-icon" aria-hidden="true">♙</span>
-            <span>
-              <strong>SecureFin User</strong>
-              <small>Send to another SecureFin account</small>
-            </span>
             <input
               type="radio"
               name="transfer-type"
@@ -108,13 +113,13 @@ function TransferForm({
               checked={transferType === 'user'}
               onChange={() => onTransferTypeChange('user')}
             />
+            <span className="transfer-type-icon" aria-hidden="true">♙</span>
+            <span>
+              <strong>SecureFin User</strong>
+              <small>Send to another SecureFin account</small>
+            </span>
           </label>
           <label className={`transfer-type-option${transferType === 'bank' ? ' selected' : ''}`}>
-            <span className="transfer-type-icon bank-icon" aria-hidden="true">▤</span>
-            <span>
-              <strong>External Bank</strong>
-              <small>Send to another bank account</small>
-            </span>
             <input
               type="radio"
               name="transfer-type"
@@ -122,71 +127,131 @@ function TransferForm({
               checked={transferType === 'bank'}
               onChange={() => onTransferTypeChange('bank')}
             />
+            <span className="transfer-type-icon bank-icon" aria-hidden="true">▤</span>
+            <span>
+              <strong>External Bank</strong>
+              <small>Send to another bank account</small>
+            </span>
           </label>
         </fieldset>
 
         <div className="transfer-field">
           <label htmlFor="beneficiary">Beneficiary</label>
-          <select
-            id="beneficiary"
-            value={beneficiaryId}
-            onChange={(event) => {onBeneficiaryChange(event.target.value); 
-            event.target.blur();  }}
-            required
-          >
-            <option value="">
-              {transferType === 'user' ? 'Select a SecureFin user' : 'Select a bank recipient'}
-            </option>
-            {visibleBeneficiaries.map((beneficiary) => (
-              <option 
-                key={beneficiary.id} 
-                value={beneficiary.id}>
-                {beneficiary.name} · 
-                {beneficiary.bank} · 
-                {beneficiary.account}
+          <div className="icon-field-wrap">
+            <span className="field-leading-icon search-field-icon" aria-hidden="true">⌕</span>
+            <select
+              id="beneficiary"
+              value={beneficiaryId}
+              onChange={(event) => onBeneficiaryChange(event.target.value)}
+            >
+              <option value="">
+                {matchingBeneficiaries.length
+                  ? 'Search existing beneficiary (optional)'
+                  : 'No matching beneficiaries'}
               </option>
-            ))}
-          </select>
+              {matchingBeneficiaries.map((beneficiary) => (
+                <option key={beneficiary.id} value={beneficiary.id}>
+                  {beneficiary.name} · {beneficiary.bank} · {beneficiary.account}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
-        {selectedBeneficiary && (
-          <div className="transfer-recipient-summary">
-            <span className="summary-icon" aria-hidden="true">♙</span>
-            <span>
-              <strong>{selectedBeneficiary.name}</strong>
-              <small>{selectedBeneficiary.bank} · {selectedBeneficiary.account}</small>
-            </span>
+        <div className="transfer-or-divider"><span>OR</span></div>
+
+        {transferType === 'bank' && (
+          <div className="transfer-field">
+            <label htmlFor="bank-name">Select Bank</label>
+            <div className="icon-field-wrap">
+              <span className="field-leading-icon" aria-hidden="true">▤</span>
+              <select
+                id="bank-name"
+                value={bankName}
+                onChange={(event) => onBankChange(event.target.value)}
+                required
+              >
+                <option value="">Select bank</option>
+                {availableBanks.map((bank) => (
+                  <option key={bank} value={bank}>{bank}</option>
+                ))}
+              </select>
+            </div>
           </div>
         )}
 
         <div className="transfer-field">
-          <label htmlFor="amount">Amount</label>
-          <div className="amount-input-wrap">
-            <span aria-hidden="true">₦</span>
-            <input
-              id="amount"
-              type="number"
-              min="1"
-              step="0.01"
-              placeholder="0.00"
-              value={amount}
-              onChange={(event) => onAmountChange(event.target.value)}
-              required
-            />
+          <label htmlFor="account-number">Account Number</label>
+          <div className="account-number-row">
+            <div className="icon-field-wrap">
+              <span className="field-leading-icon" aria-hidden="true">♙</span>
+              <input
+                id="account-number"
+                type="text"
+                inputMode="numeric"
+                pattern="[0-9]{10}"
+                maxLength="10"
+                placeholder="Enter 10-digit account number"
+                value={accountNumber}
+                onChange={(event) => onAccountNumberChange(event.target.value.replace(/\D/g, ''))}
+                required
+              />
+            </div>
+            <button type="button" className="verify-account-button" onClick={onVerifyAccount}>
+              Verify
+            </button>
           </div>
-          <small className="available-balance">Available balance: ₦12,450.75</small>
         </div>
 
         <div className="transfer-field">
-          <label htmlFor="description">Note <span className="optional-label">Optional</span></label>
-          <textarea
-            id="description"
-            maxLength="100"
-            placeholder="Add a note for this transfer (e.g. Rent, Gift, etc.)"
-            value={description}
-            onChange={(event) => onDescriptionChange(event.target.value)}
-          />
-          <small className="character-count">{description.length}/100</small>
+          <label htmlFor="account-name">Account Name</label>
+          <div className="icon-field-wrap account-name-wrap">
+            <span className="field-leading-icon" aria-hidden="true">♙</span>
+            <input
+              id="account-name"
+              type="text"
+              placeholder="Account name will appear here"
+              value={accountName}
+              readOnly
+            />
+          </div>
+          {verificationMessage && <small className="verification-message" role="status">{verificationMessage}</small>}
+        </div>
+
+        <div className="transfer-field-grid">
+          <div className="transfer-field amount-field">
+            <label htmlFor="amount">Amount</label>
+            <div className="icon-field-wrap amount-input-wrap">
+              <span className="field-leading-icon" aria-hidden="true">₦</span>
+              <input
+                id="amount"
+                type="number"
+                min="1"
+                step="0.01"
+                placeholder="0.00"
+                value={amount}
+                onChange={(event) => onAmountChange(event.target.value)}
+                required
+              />
+            </div>
+            <small className="available-balance">Available balance: ₦250,000.00</small>
+          </div>
+
+          <div className="transfer-field description-field">
+            <label htmlFor="description">Description (Optional)</label>
+            <div className="icon-field-wrap">
+              <span className="field-leading-icon" aria-hidden="true">▤</span>
+              <input
+                id="description"
+                type="text"
+                maxLength="100"
+                placeholder="e.g. Payment for services"
+                value={description}
+                onChange={(event) => onDescriptionChange(event.target.value)}
+              />
+            </div>
+            <small className="character-count">{description.length}/100</small>
+          </div>
         </div>
 
         <button className="transfer-submit" type="submit">

@@ -1,27 +1,29 @@
 .transfer-toolbar {
   display: flex;
-  min-height: 62px;
+  min-height: 60px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 0 30px;
+  padding: 0 22px;
   border-bottom: 1px solid var(--transfer-border);
+  background: #fff;
 }
 
 .transfer-search {
   display: flex;
-  width: min(100%, 435px);
-  height: 38px;
+  width: min(100%, 460px);
+  height: 36px;
   align-items: center;
   gap: 10px;
-  padding: 0 12px;
-  border: 1px solid #302d42;
-  border-radius: 20px;
-  
+  padding: 0 11px;
+  border: 1px solid #f0eff9;
+  border-radius: 9px;
+  background: #f6f6fc;
 }
 
 .transfer-search > span {
-  font-size: 21px;
+  color: #68739b;
+  font-size: 20px;
   line-height: 1;
 }
 
@@ -30,13 +32,13 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: var(--transfer-text);
+  color: #141a3b;
   font: inherit;
   font-size: 12px;
 }
 
 .transfer-search input::placeholder {
-  color: #9b97ad;
+  color: #858eaf;
   font-weight: 500;
 }
 
@@ -51,24 +53,25 @@
 .transfer-notification {
   position: relative;
   display: grid;
-  width: 32px;
+  width: 40px;
   height: 32px;
   place-items: center;
   border: 0;
   background: transparent;
   cursor: pointer;
   font-size: 20px;
+  border-right: 1px solid #ececf4;
 }
 
 .transfer-notification img {
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
 }
 
 .transfer-notification span {
   position: absolute;
   top: 4px;
-  right: 3px;
+  right: 10px;
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -81,8 +84,8 @@
   height: 36px;
   place-items: center;
   border-radius: 50%;
-  background: #403968;
-  color: #fff;
+  background: #e7e5ff;
+  color: #6048ff;
   font-size: 12px;
   font-weight: 700;
 }
@@ -90,6 +93,14 @@
 .transfer-user-name {
   font-size: 13px;
   font-weight: 650;
+  color: #141a3b;
+}
+
+.transfer-user-chevron {
+  margin-left: -5px;
+  color: #141a3b;
+  font-size: 16px;
+  line-height: 1;
 }
 
 .transfer-page:has(.transfer-main-review) .transfer-toolbar {

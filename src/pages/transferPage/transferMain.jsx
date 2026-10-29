@@ -5,14 +5,18 @@ import TransferInformation from './transferInformation.jsx';
 import './transferMain.css';
 
 const beneficiaries = [
-  { id: 'amara', name: 'Amara Okafor', bank: 'Access Bank', account: '0123456789', initials: 'AO', color: 'purple', type: 'bank' },
-  { id: 'tunde', name: 'Tunde Bello', bank: 'GTBank', account: '0987654321', initials: 'TB', color: 'green', type: 'bank' },
-  { id: 'zainab', name: 'Zainab Musa', bank: 'Zenith Bank', account: '0234567891', initials: 'ZM', color: 'blue', type: 'bank' },
-  { id: 'sarah', name: 'Sarah Johnson', bank: 'SecureFin', account: '1234567890', initials: 'SJ', color: 'orange', type: 'user' },
+  { id: 'john', name: 'John Doe', bank: 'Access Bank', account: '0123456789', initials: 'JD', color: 'purple', type: 'bank' },
+  { id: 'mike', name: 'Mike Johnson', bank: 'GTBank', account: '0987654321', initials: 'MJ', color: 'pink', type: 'bank' },
+  { id: 'emma', name: 'Emma Smith', bank: 'Zenith Bank', account: '0234567891', initials: 'ES', color: 'blue', type: 'bank' },
+  { id: 'jane', name: 'Jane Smith', bank: 'SecureFin', account: '1234567890', initials: 'JS', color: 'green', type: 'user' },
 ];
 
-function TransferMain() {
+function TransferMain({ beneficiarySearch }) {
   const [beneficiaryId, setBeneficiaryId] = useState('');
+  const [bankName, setBankName] = useState('');
+  const [accountNumber, setAccountNumber] = useState('');
+  const [accountName, setAccountName] = useState('');
+  const [verificationMessage, setVerificationMessage] = useState('');
   const [amount, setAmount] = useState('');
   const [description, setDescription] = useState('');
   const [isReviewing, setIsReviewing] = useState(false);
@@ -21,6 +25,11 @@ function TransferMain() {
 
   const selectedBeneficiary = beneficiaries.find(
     (beneficiary) => beneficiary.id === beneficiaryId,
+  );
+  const normalizedSearch = beneficiarySearch.trim().toLocaleLowerCase();
+  const searchedBeneficiaries = beneficiaries.filter((beneficiary) =>
+    [beneficiary.name, beneficiary.bank, beneficiary.account]
+      .some((value) => value.toLocaleLowerCase().includes(normalizedSearch)),
   );
 
   const reviewTransfer = (event) => {
@@ -31,7 +40,17 @@ function TransferMain() {
   const selectBeneficiary = (id) => {
     setBeneficiaryId(id);
     const beneficiary = beneficiaries.find((item) => item.id === id);
-    if (beneficiary) setTransferType(beneficiary.type);
+    if (beneficiary) {
+      setTransferType(beneficiary.type);
+      setBankName(beneficiary.bank);
+      setAccountNumber(beneficiary.account);
+      setAccountName(beneficiary.name);
+    } else {
+      setBankName('');
+      setAccountNumber('');
+      setAccountName('');
+    }
+    setVerificationMessage('');
     setIsReviewing(false);
     setConfirmationMessage('');
   };
@@ -39,8 +58,25 @@ function TransferMain() {
   const changeTransferType = (type) => {
     setTransferType(type);
     setBeneficiaryId('');
+    setBankName('');
+    setAccountNumber('');
+    setAccountName('');
+    setVerificationMessage('');
     setIsReviewing(false);
     setConfirmationMessage('');
+  };
+
+  const verifyAccount = () => {
+    const matchedBeneficiary = beneficiaries.find(
+      (beneficiary) => beneficiary.bank === bankName && beneficiary.account === accountNumber,
+    );
+    if (matchedBeneficiary) {
+      setAccountName(matchedBeneficiary.name);
+      setVerificationMessage('Account verified');
+    } else {
+      setAccountName('');
+      setVerificationMessage('Account verification is not available for this account.');
+    }
   };
 
   const cancelReview = () => {
@@ -61,15 +97,30 @@ function TransferMain() {
       )}
       <div className={`transfer-content${isReviewing ? ' review-content' : ''}`}>
         <TransferForm
-          beneficiaries={beneficiaries}
+          beneficiaries={searchedBeneficiaries}
           beneficiaryId={beneficiaryId}
           selectedBeneficiary={selectedBeneficiary}
+          bankName={bankName}
+          accountNumber={accountNumber}
+          accountName={accountName}
+          verificationMessage={verificationMessage}
           amount={amount}
           description={description}
           isReviewing={isReviewing}
           transferType={transferType}
           onTransferTypeChange={changeTransferType}
           onBeneficiaryChange={selectBeneficiary}
+          onBankChange={(value) => {
+            setBankName(value);
+            setAccountName('');
+            setVerificationMessage('');
+          }}
+          onAccountNumberChange={(value) => {
+            setAccountNumber(value);
+            setAccountName('');
+            setVerificationMessage('');
+          }}
+          onVerifyAccount={verifyAccount}
           onAmountChange={setAmount}
           onDescriptionChange={setDescription}
           onReview={reviewTransfer}
@@ -99,7 +150,7 @@ function TransferMain() {
         ) : (
           <div className="transfer-aside">
             <RecentRecipients
-              beneficiaries={beneficiaries}
+              beneficiaries={searchedBeneficiaries}
               beneficiaryId={beneficiaryId}
               onSelect={selectBeneficiary}
             />

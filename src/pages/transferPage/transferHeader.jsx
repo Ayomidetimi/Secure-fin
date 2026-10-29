@@ -1,7 +1,7 @@
 import bellIcon from '../../assets/bell-icon.svg';
 import './transferHeader.css';
 
-function TransferHeader() {
+function TransferHeader({ beneficiarySearch, onBeneficiarySearchChange }) {
   return (
     <header className="transfer-header">
       <div className="transfer-toolbar">
@@ -9,8 +9,10 @@ function TransferHeader() {
           <span aria-hidden="true">⌕</span>
           <input
             type="search"
-            aria-label="Search"
-            placeholder="Search for transactions, accounts or help..."
+            aria-label="Search beneficiaries"
+            placeholder="Search beneficiaries by name, bank, or account..."
+            value={beneficiarySearch}
+            onChange={(event) => onBeneficiarySearchChange(event.target.value)}
           />
         </label>
         <div className="transfer-user">
@@ -20,7 +22,7 @@ function TransferHeader() {
           </button>
           <span className="transfer-user-avatar" aria-hidden="true">AR</span>
           <span className="transfer-user-name">Abdul Rahman</span>
-          
+          <span className="transfer-user-chevron" aria-hidden="true">⌄</span>
         </div>
       </div>
 

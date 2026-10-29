@@ -6,6 +6,11 @@
   margin-bottom: 10px;
 }
 
+.transfer-information .information-heading h2 {
+  color: #141a3b;
+  font-size: 15px;
+}
+
 .information-badge {
   display: grid;
   width: 22px;
@@ -46,23 +51,23 @@
 }
 
 .benefit-green {
-  background: rgba(24, 154, 97, 0.2);
-  color: #2dd18a;
+  background: #e1f7ed;
+  color: #28b685;
 }
 
 .benefit-gold {
-  background: rgba(220, 157, 24, 0.17);
-  color: #ffc44b;
+  background: #fff1df;
+  color: #f5a623;
 }
 
 .benefit-purple {
-  background: rgba(129, 86, 207, 0.2);
-  color: #c0a5ff;
+  background: #eeebff;
+  color: #684eff;
 }
 
 .benefit-blue {
-  background: rgba(53, 113, 220, 0.2);
-  color: #67a7ff;
+  background: #e1edff;
+  color: #3674ee;
 }
 
 .transfer-information li strong,
@@ -71,14 +76,14 @@
 }
 
 .transfer-information li strong {
-  color: #f1eef8;
+  color: #141a3b;
   font-size: 12px;
   font-weight: 650;
 }
 
 .transfer-information li small {
   margin-top: 3px;
-  color: var(--transfer-muted);
+  color: #626b9a;
   font-size: 10px;
   line-height: 1.45;
 }

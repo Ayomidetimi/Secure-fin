@@ -5,11 +5,16 @@
   gap: 10px;
 }
 
+.recent-recipients .panel-heading h2 {
+  color: #141a3b;
+  font-size: 15px;
+}
+
 .view-all-recipients {
   padding: 0;
   border: 0;
   background: transparent;
-  color: #a88cff;
+  color: #6048ff;
   cursor: pointer;
   font: inherit;
   font-size: 11px;
@@ -25,13 +30,19 @@
   margin-top: 9px;
 }
 
+.no-beneficiaries {
+  padding: 14px 0;
+  color: #626b9a;
+  font-size: 12px;
+}
+
 .recipient-row {
   display: flex;
   min-width: 0;
   align-items: center;
   gap: 10px;
   padding: 9px 0;
-  border-bottom: 1px solid #2b293b;
+  border-bottom: 1px solid #f0f1f8;
 }
 
 .recipient-row:last-child {
@@ -41,9 +52,9 @@
 
 .recipient-avatar {
   display: grid;
-  width: 36px;
-  height: 36px;
-  flex: 0 0 36px;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
   place-items: center;
   border-radius: 50%;
   color: white;
@@ -52,19 +63,28 @@
 }
 
 .avatar-purple {
-  background: #7040bf;
+  background: #e8e5ff;
+  color: #4334e6;
 }
 
 .avatar-green {
-  background: #16854f;
+  background: #e1f7ed;
+  color: #14a46f;
 }
 
 .avatar-blue {
-  background: #2876d5;
+  background: #e1edff;
+  color: #1754db;
+}
+
+.avatar-pink {
+  background: #ffe5ed;
+  color: #d5285c;
 }
 
 .avatar-orange {
-  background: #d78b13;
+  background: #fff0dc;
+  color: #d78b13;
 }
 
 .recipient-info {
@@ -83,23 +103,23 @@
 }
 
 .recipient-info strong {
-  color: #f1eef8;
+  color: #141a3b;
   font-size: 12px;
   font-weight: 650;
 }
 
 .recipient-info small {
-  color: var(--transfer-muted);
+  color: #626b9a;
   font-size: 10px;
 }
 
 .recipient-send {
   flex: 0 0 auto;
   padding: 6px 10px;
-  border: 1px solid #343148;
+  border: 1px solid transparent;
   border-radius: 7px;
-  background: rgba(91, 50, 214, 0.15);
-  color: #b7a2ff;
+  background: #f0edff;
+  color: #6048ff;
   cursor: pointer;
   font: inherit;
   font-size: 11px;
