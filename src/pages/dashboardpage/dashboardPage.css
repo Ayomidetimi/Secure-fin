@@ -2,28 +2,13 @@
   display: flex;
 }
 
-.sidebar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 100vh;
-  background-color: rgba(24, 20, 56, 1);
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
 .main-container {
   flex: 1;
   min-width: 0;
-  margin-left: 200px;
+  margin-left: 220px;
 }
 
 @media (max-width: 768px) {
-  .sidebar-container {
-    display: none;
-  }
-
   .main-container {
     margin-left: 0;
   }

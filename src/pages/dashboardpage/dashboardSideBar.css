@@ -1,59 +1,109 @@
+.app-sidebar-shell {
+  position: fixed;
+  z-index: 2;
+  inset: 0 auto 0 0;
+  width: 220px;
+  background: linear-gradient(180deg, #171d3a 0%, #111a38 100%);
+}
+
 .side-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: rgba(24, 20, 56, 1);
+  width: 220px;
+  height: 100vh;
+  padding: 10px 0 14px;
+  box-sizing: border-box;
+  background: transparent;
   color: white;
   font-size: 13px;
-  width: 200px;
-  height: 100vh;
-  box-sizing: border-box;
-  padding-bottom: 15px;
+  overflow: hidden;
 }
 
 .brand {
   display: flex;
   gap: 10px;
-  margin: 5px 10px;
-  width: 155px;
-  height: 40px;
+  flex: 0 0 38px;
   align-items: center;
+  margin: 0 20px 4px;
   font-size: 18px;
   font-weight: bold;
 }
 
+.brand-logo {
+  position: relative;
+  display: grid;
+  width: 30px;
+  height: 34px;
+  flex: 0 0 30px;
+  place-items: center;
+  border-radius: 9px;
+  background: linear-gradient(145deg, #8066ff, #4a39dc);
+  clip-path: polygon(50% 0, 100% 20%, 94% 76%, 50% 100%, 6% 76%, 0 20%);
+}
+
+.brand-logo::before {
+  position: absolute;
+  inset: 7px 8px;
+  background: #25245a;
+  clip-path: polygon(50% 0, 100% 20%, 94% 76%, 50% 100%, 6% 76%, 0 20%);
+  content: '';
+}
+
+.brand-logo::after {
+  z-index: 1;
+  width: 6px;
+  height: 8px;
+  border-radius: 2px 2px 3px 3px;
+  background: #c9c0ff;
+  content: '';
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 20px;
+  padding: 0 11px;
+}
+
 .sidebar {
   display: flex;
-  gap: 10px;
-  cursor: pointer;
-  margin: 0 10px;
-  width: 155px;
-  height: 40px;
-  text-decoration: none;
-  flex-shrink: 0;
+  width: 100%;
+  height: 43px;
+  flex: 0 0 43px;
   align-items: center;
-  color: white;
-  border-radius: 6px;
+  gap: 12px;
+  margin: 0;
+  padding: 0 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #d3d8ed;
+  border-radius: 8px;
+  box-sizing: border-box;
 }
 
 .sidebar:active {
-  background-color: rgb(91, 50, 214);
+  background-color: #5142c5;
 }
 
 .sidebar-active {
-  background-color: rgba(91, 50, 214, 0.3);
-  outline: 1px solid rgba(116, 91, 232, 0.55);
+  background: linear-gradient(100deg, #5f4ce2, #5142c5);
+  color: #fff;
 }
 
 .item-icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   flex-shrink: 0;
   filter: brightness(0) invert(1);
-  margin-left: 10px;
 }
 
 .sidebar p {
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .app-sidebar-shell {
+    display: none;
+  }
 }

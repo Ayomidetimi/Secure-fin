@@ -14,7 +14,7 @@ import { NavLink } from 'react-router-dom';
 
 function DashboardSideBar() {
   const menuItems = [
-    { name: "Dashboard", icon: homeIcon },
+    { name: "Dashboard", icon: homeIcon, path: "/dashboard" },
     { name: "Transfer", icon: transferIcon, path: "/transfer" },
     { name: "Transactions", icon: transactionsIcon },
     { name: "Cards", icon: cardsIcon },
@@ -30,20 +30,35 @@ function DashboardSideBar() {
     <nav className="side-container">
 
       <div className="brand">
-        <div className="brand-logo">ii</div>
+        <div className="brand-logo" aria-hidden="true" />
         <span>SecureFin</span>
       </div>
 
-      {menuItems.map((item) => (
-        <NavLink 
-          to={item.path} 
-          className={({ isActive }) => `sidebar${isActive ? ' sidebar-active' : ''}`}
-          key={item.name}
-        >
-          <img className="item-icon" src={item.icon} alt="" />
-          <p>{item.name}</p>
-        </NavLink>
-      ))}
+      <div className="sidebar-links">
+        {menuItems.map((item) => {
+          const linkContent = (
+            <>
+              <img className="item-icon" src={item.icon} alt="" />
+              <p>{item.name}</p>
+            </>
+          );
+
+          return item.path ? (
+            <NavLink
+              to={item.path}
+              className={({ isActive }) => `sidebar${isActive ? ' sidebar-active' : ''}`}
+              key={item.name}
+            >
+              {linkContent}
+            </NavLink>
+          ) : (
+            <div className="sidebar" key={item.name}>
+              {linkContent}
+            </div>
+          );
+        })}
+      </div>
+
     </nav>
   );
 }

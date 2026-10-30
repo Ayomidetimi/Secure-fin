@@ -8,9 +8,9 @@ import DashboardTransactions from "./dashboardTransactions.jsx";
 function DashboardPage() {
   return (
     <div className="dashboard-container">
-      <div className="sidebar-container">
+      <aside className="app-sidebar-shell">
         <DashboardSideBar />
-      </div>
+      </aside>
 
       <div className="main-container">
         <DashboardHeader />

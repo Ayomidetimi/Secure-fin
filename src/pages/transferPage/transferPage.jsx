@@ -9,8 +9,8 @@ function TransferPage() {
 
   return (
     <div className="transfer-page">
-      <aside className="transfer-sidebar">
-        <DashboardSideBar variant="transfer" />
+      <aside className="app-sidebar-shell">
+        <DashboardSideBar />
       </aside>
       <div className="transfer-workspace">
         <TransferHeader
