@@ -16,7 +16,7 @@ function DashboardPage() {
         <DashboardHeader />
         <DashboardDisplay />
         <DashboardQuickActions />
-        <DashboardTransactions />
+        <DashboardTransactions limit={3} showViewAll />
       </div>
 
     </div>

@@ -16,7 +16,7 @@ function DashboardSideBar() {
   const menuItems = [
     { name: "Dashboard", icon: homeIcon, path: "/dashboard" },
     { name: "Transfer", icon: transferIcon, path: "/transfer" },
-    { name: "Transactions", icon: transactionsIcon },
+    { name: "Transactions", icon: transactionsIcon, path: "/transactions" },
     { name: "Cards", icon: cardsIcon },
     { name: "Beneficiaries", icon: beneficiariesIcon },
     { name: "Savings", icon: savingsIcon },

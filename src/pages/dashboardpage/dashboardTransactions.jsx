@@ -1,9 +1,14 @@
 
 import IncomingTransaction from "../../assets/add-money-icon.svg";
 import outgoingTransaction from "../../assets/send-money-icon.svg";
+import { Link } from "react-router-dom";
 import "./dashboardTransactions.css";
 
-function DashboardTransactions() {
+function DashboardTransactions({
+  title = "Recent Transactions",
+  limit,
+  showViewAll = false,
+}) {
   const transactions = [
     {
       id: "salary",
@@ -49,12 +54,23 @@ function DashboardTransactions() {
     },
   ];
 
+  const visibleTransactions = limit
+    ? transactions.slice(0, limit)
+    : transactions;
+
   return (
     <div className="dashboard-transactions">
-      <p>Recent Transactions</p>
+      <div className="transactions-heading">
+        <p>{title}</p>
+        {showViewAll && (
+          <Link className="transactions-view-all" to="/transactions">
+            View all
+          </Link>
+        )}
+      </div>
 
       <div className="transactions-container">
-        {transactions.map((transaction) => (
+        {visibleTransactions.map((transaction) => (
           <div key={transaction.id} className="transaction-item">
             <span className={`transaction-icon transaction-icon-${transaction.transactionType.toLowerCase()}`}>
               <img src={transaction.img} alt="" />

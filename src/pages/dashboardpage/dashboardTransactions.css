@@ -6,9 +6,34 @@
   min-width: 0;
 }
 
-.dashboard-transactions > p {
+.transactions-heading {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.transactions-heading > p {
   font-size: 16px;
   font-weight: 700;
+}
+
+.transactions-view-all {
+  color: #6048ff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.transactions-view-all:hover {
+  text-decoration: underline;
+}
+
+.transactions-view-all:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid #6048ff;
+  outline-offset: 3px;
 }
 
 .transactions-container {
