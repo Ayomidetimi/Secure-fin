@@ -1,16 +1,52 @@
-# React + Vite
+# SecureFin — A Security-Focused Finance Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SecureFin is a personal finance web application I'm building to strengthen my full-stack development skills and eventually apply my Cloud Security and DevSecOps knowledge to secure its infrastructure, data, and services.
 
-Currently, two official plugins are available:
+My goal is to develop a functional financial application and use it as a hands-on project to learn how modern applications are built, deployed, and secured.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Status
 
-## React Compiler
+In Development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Currently focused on frontend development, with backend integration, cloud deployment, and security implementation planned for later stages.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Login and registration interfaces
+- Dashboard interface
+- Sidebar navigation
+- Money transfer interface
+- Beneficiary selection and transfer forms
+- Transfer review interface
+
+Note: Authentication and real financial transactions are not yet functional.*
+
+## Technologies
+
+**Frontend: React, JavaScript, HTML, CSS, React Router
+
+**Backend (Planned): Node.js, Express.js, MongoDB
+
+**Cloud & Security (Planned): AWS, IAM, encryption, network security, monitoring, and DevSecOps practices
+
+**Tools: Git, GitHub, VS Code
+
+## Development Roadmap
+
+- Phase 1 — Frontend: Build responsive interfaces, reusable components, and navigation.
+- Phase 2 — Backend: Develop REST APIs, authentication, database integration, and transaction management.
+- Phase 3 — Cloud: Deploy SecureFin on AWS and configure its cloud infrastructure.
+- Phase 4 — Security: Implement secure access controls, encryption, monitoring, vulnerability testing, and DevSecOps practices.
+
+## Project Vision
+
+My ultimate goal is to transform SecureFin into a full-stack, cloud-hosted financial application and progressively secure it using the knowledge I acquire throughout my journey toward becoming a Cloud Security Engineer.
+
+## Author
+
+AbdulQuayum
+
+Frontend Developer | React & JavaScript | Exploring Cloud Security
+
+- [GitHub](https://github.com/Ayomidetimi)
+- [LinkedIn](https://www.linkedin.com/in/quayumalimi)
