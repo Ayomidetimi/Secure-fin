@@ -146,6 +146,7 @@
 
 .add-money,
 .send-money {
+  border: 1px solid transparent;
   background-color: white;
   color: rgb(91, 50, 214);
   padding: 8px 12px;
@@ -153,6 +154,26 @@
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.add-money:hover,
+.send-money:hover {
+  background-color: rgb(72, 36, 184);
+  color: white;
+  box-shadow: 0 4px 12px rgb(34 18 98 / 28%);
+  transform: translateY(-2px);
+}
+
+.add-money:active,
+.send-money:active {
+  transform: translateY(0);
+}
+
+.add-money:focus-visible,
+.send-money:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
 }
 
 
