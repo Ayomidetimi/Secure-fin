@@ -17,7 +17,7 @@ function DashboardSideBar() {
     { name: "Dashboard", icon: homeIcon, path: "/dashboard" },
     { name: "Transfer", icon: transferIcon, path: "/transfer" },
     { name: "Transactions", icon: transactionsIcon, path: "/transactions" },
-    { name: "Cards", icon: cardsIcon },
+    { name: "Cards", icon: cardsIcon, path: "/cards" },
     { name: "Beneficiaries", icon: beneficiariesIcon },
     { name: "Savings", icon: savingsIcon },
     { name: "Bills & Topups", icon: billsIcon },

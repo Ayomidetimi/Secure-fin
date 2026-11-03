@@ -1,0 +1,553 @@
+.cards-content {
+  display: grid;
+  align-content: start;
+  gap: 30px;
+  padding: 34px 40px 48px;
+  box-sizing: border-box;
+  color: #24213a;
+  text-align: left;
+}
+
+.cards-page-heading,
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cards-eyebrow {
+  margin: 0 0 6px;
+  color: #858198;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+.cards-page-heading h1 {
+  margin: 0;
+  color: #1d1b32;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1.2;
+}
+
+.cards-subtitle {
+  margin-top: 7px;
+  color: #777487;
+  font-size: 13px;
+}
+
+.cards-count {
+  padding: 8px 12px;
+  border: 1px solid #e8e6f0;
+  border-radius: 999px;
+  background: #fff;
+  color: #68637d;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cards-overview {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.95fr) minmax(300px, 1fr);
+  align-items: center;
+  gap: 36px;
+  padding: 26px;
+  border: 1px solid #eceaf2;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(34 25 80 / 4%);
+}
+
+.payment-card {
+  position: relative;
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 22px 24px 20px;
+  border-radius: 15px;
+  background:
+    radial-gradient(ellipse at 92% 8%, rgb(167 146 255 / 54%), transparent 35%),
+    radial-gradient(ellipse at 8% 100%, rgb(40 73 182 / 65%), transparent 45%),
+    linear-gradient(130deg, #29275c, #5143bd 62%, #7160e8);
+  box-shadow: 0 14px 28px rgb(51 40 127 / 24%);
+  box-sizing: border-box;
+  color: #fff;
+  transition: filter 180ms ease;
+}
+
+.payment-card::after {
+  position: absolute;
+  top: -64px;
+  right: -42px;
+  width: 190px;
+  height: 190px;
+  border: 1px solid rgb(255 255 255 / 13%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px rgb(255 255 255 / 4%), 0 0 0 50px rgb(255 255 255 / 3%);
+  content: '';
+}
+
+.payment-card-frozen {
+  filter: grayscale(0.78);
+}
+
+.payment-card-top,
+.payment-card-bottom {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.payment-card-chip {
+  display: grid;
+  width: 35px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 58%);
+  border-radius: 6px;
+  background: linear-gradient(135deg, #e8dcae, #bba963);
+}
+
+.payment-card-chip span {
+  width: 20px;
+  height: 13px;
+  border: 1px solid rgb(87 75 40 / 60%);
+  border-radius: 3px;
+  background:
+    linear-gradient(90deg, transparent 47%, rgb(87 75 40 / 55%) 48%, rgb(87 75 40 / 55%) 52%, transparent 53%),
+    linear-gradient(0deg, transparent 45%, rgb(87 75 40 / 55%) 46%, rgb(87 75 40 / 55%) 53%, transparent 54%);
+}
+
+.payment-card-type {
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.payment-card-label,
+.payment-card-number,
+.payment-card-caption,
+.payment-card-value {
+  z-index: 1;
+  margin: 0;
+}
+
+.payment-card-label {
+  margin-top: 17px;
+  color: rgb(255 255 255 / 72%);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+
+.payment-card-number {
+  margin-top: 5px;
+  font-size: clamp(16px, 2vw, 19px);
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+}
+
+.payment-card-bottom {
+  justify-content: flex-start;
+  gap: 28px;
+  margin-top: 18px;
+}
+
+.payment-card-bottom > div {
+  display: grid;
+  gap: 3px;
+}
+
+.payment-card-caption {
+  color: rgb(255 255 255 / 62%);
+  font-size: 7px;
+  letter-spacing: 0.8px;
+}
+
+.payment-card-value {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.payment-card-mark {
+  display: flex;
+  margin-left: auto;
+}
+
+.payment-card-mark i {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: #eb645b;
+}
+
+.payment-card-mark i + i {
+  margin-left: -9px;
+  background: #f2b94b;
+  opacity: 0.95;
+}
+
+.payment-card-frozen-label {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgb(22 21 47 / 35%);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.card-controls {
+  min-width: 0;
+}
+
+.card-controls-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-controls-heading h2,
+.section-heading h2 {
+  margin: 0;
+  color: #24213a;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+}
+
+.card-status {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 8px;
+  color: #797589;
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #21aa71;
+}
+
+.status-dot-frozen {
+  background: #d8952d;
+}
+
+.card-network {
+  padding: 5px 8px;
+  border: 1px solid #e9e7f0;
+  border-radius: 5px;
+  color: #5a4dc1;
+  font-size: 9px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.card-action-button {
+  display: inline-flex;
+  min-height: 39px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid #e6e4ee;
+  border-radius: 8px;
+  background: #fff;
+  color: #4a465d;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.card-action-button:hover {
+  border-color: #c9c2f2;
+  background: #f8f7ff;
+}
+
+.card-action-button:focus-visible,
+.card-activity-link:focus-visible {
+  outline: 2px solid #6048ff;
+  outline-offset: 3px;
+}
+
+.card-action-freeze {
+  color: #b14e48;
+}
+
+.card-action-unfreeze {
+  color: #188452;
+}
+
+.card-details-note {
+  margin-top: 10px;
+  color: #858198;
+  font-size: 11px;
+}
+
+.spending-section,
+.card-activity-section {
+  padding: 22px 24px;
+  border: 1px solid #eceaf2;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.spending-section .section-heading,
+.card-activity-section .section-heading {
+  margin-bottom: 20px;
+}
+
+.spending-period {
+  color: #858198;
+  font-size: 11px;
+}
+
+.spending-summary {
+  display: grid;
+  grid-template-columns: minmax(140px, 0.7fr) minmax(220px, 1.3fr);
+  align-items: center;
+  gap: 28px;
+}
+
+.spending-caption,
+.spending-limit-label,
+.spending-remaining {
+  color: #858198;
+  font-size: 11px;
+}
+
+.spending-total {
+  margin-top: 4px;
+  color: #252239;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.spending-limit-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.spending-limit-label > span:last-child {
+  color: #504b64;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.spending-limit-of {
+  color: #858198;
+  font-weight: 400;
+}
+
+.spending-progress {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #efedf6;
+}
+
+.spending-progress span {
+  display: block;
+  width: 29%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6553d8, #927eff);
+}
+
+.spending-remaining {
+  display: block;
+  margin-top: 8px;
+}
+
+.card-activity-link {
+  color: #6048c9;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.card-activity-link:hover {
+  text-decoration: underline;
+}
+
+.card-activity-list {
+  display: grid;
+}
+
+.card-activity-item {
+  display: flex;
+  min-height: 58px;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid #f0eef4;
+}
+
+.activity-avatar {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  border-radius: 11px;
+  background: #f0edff;
+  color: #5b4ac0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.activity-description {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.activity-description p {
+  overflow: hidden;
+  color: #38354a;
+  font-size: 12px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.activity-description span {
+  color: #8a8798;
+  font-size: 10px;
+}
+
+.activity-amount {
+  margin-left: auto;
+  color: #302d43;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .cards-content {
+    gap: 22px;
+    padding: 26px 24px 36px;
+  }
+
+  .cards-overview {
+    grid-template-columns: minmax(240px, 0.95fr) minmax(230px, 1fr);
+    gap: 24px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-content {
+    padding: 22px 16px 30px;
+  }
+
+  .cards-page-heading {
+    align-items: flex-start;
+  }
+
+  .cards-page-heading h1 {
+    font-size: 26px;
+  }
+
+  .cards-subtitle {
+    max-width: 270px;
+    font-size: 12px;
+  }
+
+  .cards-count {
+    padding: 7px 9px;
+    font-size: 10px;
+  }
+
+  .cards-overview {
+    grid-template-columns: 1fr;
+    gap: 23px;
+    padding: 16px;
+  }
+
+  .payment-card {
+    min-height: 180px;
+    padding: 18px 20px;
+  }
+
+  .spending-section,
+  .card-activity-section {
+    padding: 18px 16px;
+  }
+
+  .spending-summary {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .spending-total {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cards-page-heading {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment-card-number {
+    font-size: 15px;
+    letter-spacing: 0.8px;
+  }
+
+  .card-actions {
+    gap: 7px;
+  }
+
+  .card-action-button {
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
+  .spending-limit-label {
+    font-size: 10px;
+  }
+
+  .card-activity-item {
+    gap: 9px;
+  }
+
+  .activity-description span {
+    font-size: 9px;
+  }
+
+  .activity-amount {
+    font-size: 11px;
+  }
+}
