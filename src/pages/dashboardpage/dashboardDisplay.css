@@ -1,20 +1,37 @@
 .dashboard-display-container {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  background-color: rgb(91, 50, 214);
-  min-height: 150px;
-  margin: 10px;
-  padding: 20px;
-  border-radius: 10px;
+  align-items: center;
+  min-height: 205px;
+  margin: 0 0 30px;
+  padding: 30px 34px;
+  border-radius: 20px;
+  background: linear-gradient(118deg, #33278f 0%, #5142c5 53%, #7158e8 100%);
   color: white;
-  height: 190px;
-  gap: 20px;
+  box-shadow: 0 16px 34px rgb(68 51 171 / 18%);
+  box-sizing: border-box;
+}
+
+.dashboard-display-container::after {
+  position: absolute;
+  z-index: -1;
+  top: -110px;
+  right: 12%;
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 38px rgb(255 255 255 / 5%), 0 0 0 78px rgb(255 255 255 / 4%);
+  content: "";
 }
 
 .left-display {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 8px;
   justify-items: start;
   min-width: 0;
 }
@@ -22,59 +39,71 @@
 .total-balance {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  color: rgb(255 255 255 / 78%);
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.total-balance {
-  font-size: 15px;
-  font-weight: bold;
+.hide-balance-button {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 12%);
+  cursor: pointer;
+}
+
+.hide-balance-button:hover {
+  background: rgb(255 255 255 / 20%);
+}
+
+.hide-balance-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
 
 .hide-balance-icon {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
+  width: 16px;
+  height: 16px;
   filter: brightness(0) invert(1);
 }
 
 .total-balance-amount {
   display: flex;
   align-items: center;
-  filter: brightness(0) invert(1);
 }
 
 .amount {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
   flex-wrap: nowrap;
 }
 
-.total-balance-amount,
-.hide-balance {
-  flex-shrink: 0;
-}
-.amount p{
-  font-size: 33px;
-  font-weight: bolder;
+.amount p {
   margin: 0;
+  color: #fff;
+  font-size: clamp(30px, 3.2vw, 42px);
+  font-weight: 700;
+  letter-spacing: -1.2px;
   white-space: nowrap;
 }
 
-.total-naira {
-  width: 30px;
-  height: 30px;
+.hide-balance {
+  color: #fff;
+  font-size: 30px;
+  letter-spacing: 5px;
   flex-shrink: 0;
 }
 
-.hide-balance {
-  display: flex;
-  gap: 5px;
-}
-
-.hide-balance img {
-  width: 15px;
-  height: 15px;
+.total-naira {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
   filter: brightness(0) invert(1);
 }
 
@@ -82,86 +111,69 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
-  margin-top: 10px;
+  gap: 3px;
+  margin-top: 12px;
 }
 
 .available-balance > p {
   margin: 0;
-  font-size: 15px;
-  font-weight: bold;
+  color: rgb(255 255 255 / 68%);
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .available-amount {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 .available-balance-amount {
   display: flex;
-  height: 25px;
-  gap: 5px;
-  filter: brightness(0) invert(1);
   align-items: center;
-  height: 30px;
+  min-height: 24px;
 }
 
 .available-balance-amount p {
   margin: 0;
-  font-size: 15px;
-  font-weight: bold;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
   white-space: nowrap;
 }
 
-.available-amount .hide-balance {
-  display: flex;
-  align-items: center;
-  height: 25px;
-  gap: 5px;
-}
-
-.available-amount .hide-balance img {
-  width: 12px;
-  height: 12px;
-  flex-shrink: 0;
-}
-
 .available-naira {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   flex-shrink: 0;
-}
-.available-balance p{
-  font-size: 15px;
-  font-weight: bolder;
+  filter: brightness(0) invert(1);
 }
 
 .right-display {
   display: flex;
-  align-items: last baseline;
+  align-items: center;
   flex-shrink: 0;
-  gap: 10px;
+  gap: 12px;
 }
 
 .add-money,
 .send-money {
-  border: 1px solid transparent;
-  background-color: white;
-  color: rgb(91, 50, 214);
-  padding: 8px 12px;
+  border: 1px solid rgb(255 255 255 / 70%);
+  background: #fff;
+  color: #4435ad;
+  padding: 11px 16px;
   border-radius: 10px;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 650;
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .add-money:hover,
 .send-money:hover {
-  background-color: rgb(72, 36, 184);
-  color: white;
-  box-shadow: 0 4px 12px rgb(34 18 98 / 28%);
+  background-color: #f2efff;
+  color: #4435ad;
+  box-shadow: 0 6px 16px rgb(34 18 98 / 22%);
   transform: translateY(-2px);
 }
 
@@ -177,33 +189,44 @@
 }
 
 
-/* Very small screens */
 @media (max-width: 480px) {
-  .available-balance {
-    display: none;
-  }
-
   .right-display {
-    display: none;
+    gap: 8px;
   }
 
   .dashboard-display-container {
     grid-template-columns: 1fr;
-    height: auto;
-    min-height: 120px;
-    padding: 15px;
-  }
-
-  .left-display {
-    gap: 10px;
+    gap: 20px;
+    min-height: 0;
+    margin-bottom: 24px;
+    padding: 22px;
+    border-radius: 16px;
   }
 
   .amount p {
-    font-size: 26px;
+    font-size: 32px;
   }
 
-  .total-naira {
-    width: 24px;
-    height: 24px;
+  .hide-balance {
+    font-size: 25px;
+  }
+
+  .right-display {
+    flex-wrap: wrap;
+  }
+
+  .add-money,
+  .send-money {
+    padding: 9px 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .dashboard-display-container {
+    padding: 18px;
+  }
+
+  .amount p {
+    font-size: 28px;
   }
 }

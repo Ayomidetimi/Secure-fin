@@ -1,8 +1,7 @@
 .dashboard-transactions {
   display: grid;
   justify-items: start;
-  margin: 17px;
-  gap: 15px;
+  gap: 14px;
   min-width: 0;
 }
 
@@ -15,12 +14,15 @@
 }
 
 .transactions-heading > p {
-  font-size: 16px;
+  margin: 0;
+  color: #252b48;
+  font-size: 17px;
   font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
 .transactions-view-all {
-  color: #6048ff;
+  color: #5142c5;
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
@@ -39,7 +41,10 @@
 .transactions-container {
   display: grid;
   width: 100%;
-  gap: 8px;
+  overflow: hidden;
+  border: 1px solid #e8eaf2;
+  border-radius: 14px;
+  background: #fff;
 }
 
 .transaction-item {
@@ -48,12 +53,14 @@
   align-items: center;
   gap: 16px;
   width: 100%;
-  min-height: 72px;
-  padding: 12px 16px;
-  border: 1px solid #e8e7ef;
-  border-radius: 10px;
-  background-color: #fff;
+  min-height: 76px;
+  padding: 12px 20px;
+  border-bottom: 1px solid #eff0f5;
   box-sizing: border-box;
+}
+
+.transaction-item:last-child {
+  border-bottom: 0;
 }
 
 .transaction-icon {
@@ -61,7 +68,7 @@
   width: 40px;
   height: 40px;
   place-items: center;
-  border-radius: 12px;
+  border-radius: 13px;
 }
 
 .transaction-icon-credit {
@@ -88,6 +95,7 @@
 .transaction-title {
   min-width: 0;
   margin: 0;
+  color: #303650;
   overflow: hidden;
   font-size: 14px;
   font-weight: 600;
@@ -133,14 +141,10 @@
 }
 
 @media (max-width: 640px) {
-  .dashboard-transactions {
-    margin: 16px 12px;
-  }
-
   .transaction-item {
     gap: 10px;
     padding: 11px 12px;
-    grid-template-columns: 36px minmax(0, 1fr) 64px 112px;
+    grid-template-columns: 36px minmax(0, 1fr) 56px 112px;
   }
 
   .transaction-icon {
@@ -154,7 +158,16 @@
   .transaction-item {
     gap: 8px;
     padding: 10px 8px;
-    grid-template-columns: 36px minmax(0, 1fr) 56px 94px;
+    grid-template-columns: 32px minmax(0, 1fr) 48px 86px;
+  }
+
+  .transaction-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .transaction-title {
+    font-size: 12px;
   }
 
   .transaction-type {

@@ -1,41 +1,45 @@
 .dashboard-quick-actions {
   display: grid;
   justify-items: start;
-  margin: 17px;
+  margin: 0 0 30px;
 }
 
 .dashboard-quick-actions > p {
-  font-size: 16px;
+  margin: 0;
+  color: #252b48;
+  font-size: 17px;
   font-weight: 700;
+  letter-spacing: -0.2px;
 }
 
 .quick-actions-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px;
-  width: 80%;
-  margin-top: 15px;
-  margin-left: 10px;
+  width: 100%;
+  margin-top: 14px;
 }
 
 .quick-action-card {
   display: flex;
-  min-height: 112px;
+  min-height: 128px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 14px 10px;
-  border: 1px solid transparent;
-  border-radius: 12px;
-  background-color: transparent;
-  color: #242044;
+  gap: 12px;
+  padding: 16px 10px;
+  border: 1px solid #e9ebf2;
+  border-radius: 14px;
+  background: #fff;
+  color: #303650;
   text-decoration: none;
   box-sizing: border-box;
-  transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
 }
 
 .quick-action-card:hover {
+  border-color: #d7d0ff;
+  box-shadow: 0 8px 20px rgb(47 39 105 / 7%);
   transform: translateY(-2px);
 }
 
@@ -49,8 +53,8 @@
   width: 48px;
   height: 48px;
   place-items: center;
-  border-radius: 14px;
-  background-color: #e8e1ff;
+  border-radius: 15px;
+  background: #f0edff;
 }
 
 .quick-action-icon img {
@@ -60,7 +64,29 @@
 }
 
 .quick-action-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   text-align: center;
+}
+
+@media (max-width: 900px) {
+  .quick-actions-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-quick-actions {
+    margin-bottom: 24px;
+  }
+
+  .quick-actions-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .quick-action-card {
+    min-height: 108px;
+  }
 }

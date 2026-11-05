@@ -16,67 +16,54 @@ function DashboardDisplay() {
     <div className="dashboard-display-container">
       <div className="left-display">
         <div className="total-balance">
-        <p>Total Balance</p>
-        <img
-          className="hide-balance-icon"
-          onClick={seeBalance}
-          src={viewBalance ? EyeSolidIcon : EyeSlashIcon} alt=""
-        />
-      </div>
+          <p>Total Balance</p>
+          <button
+            className="hide-balance-button"
+            type="button"
+            onClick={seeBalance}
+            aria-label={viewBalance ? "Hide balance" : "Show balance"}
+          >
+            <img
+              className="hide-balance-icon"
+              src={viewBalance ? EyeSolidIcon : EyeSlashIcon}
+              alt=""
+            />
+          </button>
+        </div>
 
-      <div className="amount">
-        <img
-          className="total-naira"
-          src={NairaIcon}
-          alt=""
-        />
-        {
-          viewBalance ?
+        <div className="amount">
+          <img className="total-naira" src={NairaIcon} alt="" />
+          {viewBalance ? (
             <div className="total-balance-amount">
               <p>250,000.00</p>
-            </div> :
-            <div className="hide-balance">
-              <img src={EyeSlashIcon} alt="" />
-              <img src={EyeSlashIcon} alt="" />
-              <img src={EyeSlashIcon} alt="" />
-              <img src={EyeSlashIcon} alt="" />
             </div>
-        }
-      </div>
-
-      <div className="available-balance">
-        <p>Available Balance</p>
-        <div className="available-amount">
-          <img
-          className="available-naira"
-          src={NairaIcon}
-          alt=""
-        />
-
-        {
-          viewBalance ?
-            <div className="available-balance-amount">
-              <p>250,000.00</p>
-            </div> :
-            <div className="hide-balance">
-              <img src={EyeSlashIcon} alt="" />
-              <img src={EyeSlashIcon} alt="" />
-              <img src={EyeSlashIcon} alt="" />
-              <img src={EyeSlashIcon} alt="" />
+          ) : (
+            <div className="hide-balance" aria-label="Balance hidden">
+              <span>••••••</span>
             </div>
-        }
+          )}
         </div>
-        
-      </div>
+
+        <div className="available-balance">
+          <p>Available Balance</p>
+          <div className="available-amount">
+            <img className="available-naira" src={NairaIcon} alt="" />
+            {viewBalance ? (
+              <div className="available-balance-amount">
+                <p>250,000.00</p>
+              </div>
+            ) : (
+              <div className="hide-balance" aria-label="Balance hidden">
+                <span>••••••</span>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="right-display">
-        <div className="add-money">
-          Add Money
-        </div>
-        <div className="send-money">
-          Send Money
-        </div>
+        <div className="add-money">Add Money</div>
+        <div className="send-money">Send Money</div>
       </div>
     </div>
   )
