@@ -11,7 +11,10 @@ function TransactionsPage() {
       </aside>
 
       <main className="main-container">
-        <DashboardTransactions title="Transaction History" />
+        <DashboardTransactions
+          title="Transaction History"
+          showTransactionFilters
+        />
       </main>
     </div>
   );

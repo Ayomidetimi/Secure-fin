@@ -1,6 +1,7 @@
 
 import IncomingTransaction from "../../assets/add-money-icon.svg";
 import outgoingTransaction from "../../assets/send-money-icon.svg";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./dashboardTransactions.css";
 
@@ -8,7 +9,9 @@ function DashboardTransactions({
   title = "Recent Transactions",
   limit,
   showViewAll = false,
+  showTransactionFilters = false,
 }) {
+  const [activeFilter, setActiveFilter] = useState("All");
   const transactions = [
     {
       id: "salary",
@@ -54,9 +57,12 @@ function DashboardTransactions({
     },
   ];
 
+  const filteredTransactions = activeFilter === "All"
+    ? transactions
+    : transactions.filter((transaction) => transaction.transactionType === activeFilter);
   const visibleTransactions = limit
-    ? transactions.slice(0, limit)
-    : transactions;
+    ? filteredTransactions.slice(0, limit)
+    : filteredTransactions;
 
   return (
     <div className="dashboard-transactions">
@@ -68,6 +74,22 @@ function DashboardTransactions({
           </Link>
         )}
       </div>
+
+      {showTransactionFilters && (
+        <nav className="transaction-filters" aria-label="Filter transactions">
+          {["All", "Credit", "Debit"].map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              className={`transaction-filter${activeFilter === filter ? " is-active" : ""}`}
+              aria-pressed={activeFilter === filter}
+              onClick={() => setActiveFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </nav>
+      )}
 
       <div className="transactions-container">
         {visibleTransactions.map((transaction) => (
