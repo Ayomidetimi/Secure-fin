@@ -1,6 +1,5 @@
 import DashboardSideBar from '../dashboardpage/dashboardSideBar.jsx';
-import DashboardTransactions from '../dashboardpage/dashboardTransactions.jsx';
-import '../dashboardpage/dashboardPage.css';
+import DashboardTransactions from './dashboardTransactions.jsx';
 import './transactionsPage.css';
 
 function TransactionsPage() {
