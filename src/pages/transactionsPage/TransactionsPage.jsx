@@ -8,7 +8,6 @@ function TransactionsPage() {
       <aside className="app-sidebar-shell">
         <DashboardSideBar />
       </aside>
-
       <main className="main-container">
         <DashboardTransactions
           title="Transaction History"

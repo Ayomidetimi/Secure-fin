@@ -10,7 +10,6 @@ function DashboardPage() {
       <aside className="app-sidebar-shell">
         <DashboardSideBar />
       </aside>
-
       <div className="main-container">
         <DashboardHeader />
         <DashboardDisplay />

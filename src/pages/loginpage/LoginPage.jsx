@@ -12,7 +12,6 @@ function LoginPage() {
     setShowpassword(!showPassword)
   }
   return (
-    
       <form className="login-page">
 
         <div className="email-section">
