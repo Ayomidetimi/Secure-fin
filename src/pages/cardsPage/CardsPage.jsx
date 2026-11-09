@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardSideBar from '../dashboardpage/dashboardSideBar.jsx';
 import CardVisual from './CardVisual.jsx';
+import BackToDashboard from '../../components/BackToDashboard.jsx';
 import './cardsPage.css';
 
 const cardActivity = [
@@ -69,6 +70,7 @@ function CardsPage() {
       </aside>
 
       <main className="main-container cards-content">
+        <BackToDashboard />
         <header className="cards-page-heading">
           <div>
             <p className="cards-eyebrow">YOUR FINANCES</p>

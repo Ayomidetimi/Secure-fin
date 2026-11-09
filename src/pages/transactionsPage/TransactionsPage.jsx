@@ -1,5 +1,6 @@
 import DashboardSideBar from '../dashboardpage/dashboardSideBar.jsx';
 import DashboardTransactions from './dashboardTransactions.jsx';
+import BackToDashboard from '../../components/BackToDashboard.jsx';
 import './transactionsPage.css';
 
 function TransactionsPage() {
@@ -9,6 +10,7 @@ function TransactionsPage() {
         <DashboardSideBar />
       </aside>
       <main className="main-container">
+        <BackToDashboard />
         <DashboardTransactions
           title="Transaction History"
           showTransactionFilters

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import DashboardSideBar from '../dashboardpage/dashboardSideBar.jsx';
 import TransferHeader from '../transferPage/transferHeader.jsx';
+import BackToDashboard from '../../components/BackToDashboard.jsx';
 import './beneficiariesPage.css';
 
 const initialBeneficiaries = [
@@ -128,6 +129,7 @@ function BeneficiariesPage() {
           onBeneficiarySearchChange={setSearch}
         />
         <main className="beneficiaries-content">
+          <BackToDashboard />
           <header className="beneficiaries-heading">
             <div>
               <p className="beneficiaries-eyebrow">PAYMENTS</p>

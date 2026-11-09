@@ -1,0 +1,33 @@
+.back-to-dashboard {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e8e6f0;
+  border-radius: 10px;
+  background: #fff;
+  color: #24213a;
+  text-decoration: none;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.back-to-dashboard:hover {
+  border-color: #c9c2f2;
+  background: #f7f6ff;
+}
+
+.back-to-dashboard:focus-visible {
+  outline: 2px solid #6048ff;
+  outline-offset: 3px;
+}
+
+.back-to-dashboard svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}

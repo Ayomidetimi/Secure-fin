@@ -23,6 +23,10 @@
   background: #f7f8ff;
 }
 
+.transfer-workspace > .back-to-dashboard {
+  margin: 12px 22px;
+}
+
 @media (max-width: 768px) {
   .transfer-workspace {
     margin-left: 0;
