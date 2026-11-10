@@ -9,9 +9,19 @@
   background: #fff;
 }
 
-.transfer-search {
+.transfer-search-group {
   display: flex;
   width: min(100%, 460px);
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+}
+
+.transfer-search {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex: 1;
   height: 36px;
   align-items: center;
   gap: 10px;

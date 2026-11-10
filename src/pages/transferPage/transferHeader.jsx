@@ -1,20 +1,24 @@
 import bellIcon from '../../assets/bell-icon.svg';
+import BackToDashboard from '../../components/BackToDashboard.jsx';
 import './transferHeader.css';
 
-function TransferHeader({ beneficiarySearch, onBeneficiarySearchChange }) {
+function TransferHeader({ beneficiarySearch, onBeneficiarySearchChange, showBackButton = false }) {
   return (
     <header className="transfer-header">
       <div className="transfer-toolbar">
-        <label className="transfer-search">
-          <span aria-hidden="true">⌕</span>
-          <input
-            type="search"
-            aria-label="Search beneficiaries"
-            placeholder="Search beneficiaries by name, bank, or account..."
-            value={beneficiarySearch}
-            onChange={(event) => onBeneficiarySearchChange(event.target.value)}
-          />
-        </label>
+        <div className="transfer-search-group">
+          {showBackButton && <BackToDashboard />}
+          <label className="transfer-search">
+            <span aria-hidden="true">⌕</span>
+            <input
+              type="search"
+              aria-label="Search beneficiaries"
+              placeholder="Search beneficiaries by name, bank, or account..."
+              value={beneficiarySearch}
+              onChange={(event) => onBeneficiarySearchChange(event.target.value)}
+            />
+          </label>
+        </div>
         <div className="transfer-user">
           <button className="transfer-notification" type="button" aria-label="Notifications">
             <img src={bellIcon} alt="" />

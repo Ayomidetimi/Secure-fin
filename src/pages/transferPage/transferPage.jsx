@@ -2,7 +2,6 @@ import { useState } from 'react';
 import DashboardSideBar from '../dashboardpage/dashboardSideBar.jsx';
 import TransferHeader from './transferHeader.jsx';
 import TransferMain from './transferMain.jsx';
-import BackToDashboard from '../../components/BackToDashboard.jsx';
 import './transferPage.css';
 
 function TransferPage() {
@@ -14,10 +13,10 @@ function TransferPage() {
         <DashboardSideBar />
       </aside>
       <div className="transfer-workspace">
-        <BackToDashboard />
         <TransferHeader
           beneficiarySearch={beneficiarySearch}
           onBeneficiarySearchChange={setBeneficiarySearch}
+          showBackButton
         />
         <TransferMain beneficiarySearch={beneficiarySearch} />
       </div>
