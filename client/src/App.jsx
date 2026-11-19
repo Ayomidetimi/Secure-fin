@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/loginpage/LoginPage';
-import RegisterPage from './pages/registerpage/registerPage';
+import RegisterPage from './pages/Registerpage/registerPage';
 import DashboardPage from './pages/dashboardpage/DashboardPage';
 import TransferPage from './pages/transferPage/transferPage.jsx';
 import TransactionsPage from './pages/transactionsPage/TransactionsPage.jsx';

@@ -4,6 +4,7 @@ import eyeIcon from '../../assets/eye-solid-full.svg'
 import eyeSlash from '../../assets/eye-slash-icon.png'
 import { useState } from 'react';
 import Axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 
 function LoginPage() {
@@ -17,16 +18,20 @@ function LoginPage() {
     setShowpassword(!showPassword)
   }
 
+  const navigate = useNavigate()
+
   function handleSubmit(e) {
     e.preventDefault();
     Axios.post('http://localhost:3000/auth/login', {
       email: email,
       password: password
     }).then((response) => {
-      console.log(response.data);
-    }).catch((err) => {
-      console.error(err)
-    })
+        if (response.data.status === "success") {
+          navigate("/dashboard");
+        }
+      }).catch((err) => {
+        console.error(err)
+      })
 
   }
 

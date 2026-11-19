@@ -14,7 +14,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/securefin")
   });
   
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: ["http://localhost:5173", "http://localhost:5174"]
 }));
 app.use(express.json());
 

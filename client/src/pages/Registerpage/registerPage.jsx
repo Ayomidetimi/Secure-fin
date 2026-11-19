@@ -3,11 +3,16 @@ import eyeSlash from '../../assets/eye-slash-icon.png';
 import { useState } from "react";
 import './registerPage.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function RegisterPage () {
   const [showPassword, setShowpassword] = useState(false);
-
   const [showPassword2, setShowpassword2] = useState(false);
+
+  const [ userName, setUserName ] = useState();
+  const [ email, setEmail ] = useState();
+  const [ password, setpassword ] = useState();
+  const [ password2, setPassword2 ] = useState();
 
 
   const passwordVisible = ()=> {
@@ -18,14 +23,39 @@ function RegisterPage () {
     setShowpassword2(!showPassword2);
   };
 
-  return(
-    <form className="register-page">
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log("Register button clicked");
+    axios.post('http://localhost:3000/auth/register', {
+      userName: userName,
+      email: email,
+      password: password,
+      password2: password2,
+    }).then((response)=> {
+      console.log(response.data)
+    }).catch((err) => {
+      console.log(err)
+    })
+
+  }
+  return(
+    <form className="register-page" onSubmit={handleSubmit}
+    
+    >
         <div className="register-name-section">
-          <label htmlFor="name" className="register-name-label">
+          <label htmlFor="name"   className="register-name-label"
+          >
             Full name
           </label>
-          <input className="register-name-input"   type="text" placeholder="Enter your full name" 
+          <input 
+            className="register-name-input"   
+            type="text" 
+            placeholder="Enter your full name" 
+            onChange={(e)=> setUserName(e.target.value)}
+            required
+            autoComplete="name"
           />
         </div>
 
@@ -33,7 +63,14 @@ function RegisterPage () {
           <label htmlFor="Email" className="register-email-label">
             Email Address
           </label>
-          <input className="register-email-input" type="email" placeholder="you@example.com" />
+          <input 
+            className="register-email-input" 
+            type="email" 
+            placeholder="you@example.com" 
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            autoComplete='email'
+          />
         </div>
         
         <div className="create-password-section">
@@ -44,6 +81,9 @@ function RegisterPage () {
             className="register-password-input" 
             type={showPassword? "password" : "text"} 
             placeholder="Enter your password" 
+            onChange={(e) => setpassword(e.target.value)}
+            required
+            autoComplete='password'
           />
           <img 
             src={
@@ -63,6 +103,9 @@ function RegisterPage () {
             className="confirm-password-input" 
             type={showPassword2? "password" : "text"} 
             placeholder="Enter your password" 
+            onChange={(e) => setPassword2(e.target.value)}
+            required
+            autoComplete='password'
           />
           <img 
             src={
@@ -88,9 +131,11 @@ function RegisterPage () {
         </div>
 
        
-        <div className="register-button">
+        <button className="register-button" type="submit"
+        onClick={() => console.log("Button clicked")}
+        >
           Create Account
-        </div>
+        </button>
         
       </form>
   )
