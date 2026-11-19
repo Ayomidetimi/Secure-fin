@@ -25,13 +25,17 @@ function LoginPage() {
     Axios.post('http://localhost:3000/auth/login', {
       email: email,
       password: password
-    }).then((response) => {
-        if (response.data.status === "success") {
-          navigate("/dashboard");
-        }
-      }).catch((err) => {
-        console.error(err)
-      })
+    },
+      {
+        withCredentials: true
+      }
+    ).then((response) => {
+      if (response.data.status === "success") {
+        navigate("/dashboard");
+      }
+    }).catch((err) => {
+      console.error(err)
+    })
 
   }
 
