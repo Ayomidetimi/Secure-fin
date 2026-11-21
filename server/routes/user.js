@@ -2,6 +2,7 @@ import express from "express";
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { verifyToken } from "./middleware/verifyToken.js";
 
 
 const router = express.Router();
@@ -84,5 +85,13 @@ router.post("/login", async (req, res) => {
 
 
 })
+
+router.get("/dashboard", verifyToken, (req, res) => {
+  return res.json({
+    status: "success",
+    message: "Welcome to SecureFin dashboard",
+    userId: req.user.userId
+  });
+});
 
 export default router;
