@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import axios from "axios";
 
-function ProtectedRoute({ children }) {
+function ProtectedRoute() {
   const [isAuthenticated, setIsAuthenticated] = useState(null);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function ProtectedRoute({ children }) {
     return <Navigate to="/" replace />;
   }
 
-  return children;
+  return <Outlet />;
 }
 
 export default ProtectedRoute;

@@ -1,3 +1,4 @@
+
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './pages/loginpage/LoginPage';
 import RegisterPage from './pages/Registerpage/registerPage';
@@ -9,22 +10,21 @@ import BeneficiariesPage from './pages/beneficiariesPage/BeneficiariesPage.jsx';
 import ProtectedRoute from "./components/protectedRoute.jsx";
 
 function App() {
-  return(
+  return (
     <Routes>
-      <Route path='/' element={<LoginPage />} />
-      <Route path='register' element={<RegisterPage />} />
-      <Route path='dashboard' element={
-        <ProtectedRoute>
-           <DashboardPage />
-        </ProtectedRoute>   
-        } />
-      <Route path='transactions' element={<TransactionsPage />} 
-    />
-      <Route path='cards' element={<CardsPage />} />
-      <Route path='beneficiaries' element={<BeneficiariesPage />} />
-      <Route path='transfer' element={<TransferPage />} />
+      
+      <Route path="/" element={<LoginPage />} />
+      <Route path="register" element={<RegisterPage />} />
+
+      <Route element={<ProtectedRoute />}>
+        <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="transfer" element={<TransferPage />} />
+        <Route path="transactions" element={<TransactionsPage />} />
+        <Route path="cards" element={<CardsPage />} />
+        <Route path="beneficiaries" element={<BeneficiariesPage />} />
+      </Route>
     </Routes>
-  )
+  );
 }
 
 export default App;
