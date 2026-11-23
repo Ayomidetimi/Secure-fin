@@ -9,10 +9,24 @@ const router = express.Router();
 
 router.post("/register", async (req, res) => {
 
-
   try {
     const { userName, email, password, password2 } = req.body
-    const user = await User.findOne({ email })
+
+    if (!userName || !email || !password || !password2) {
+      return res.status(400).json({
+        message: "All fields are required"
+      });
+    }
+
+    const normalizedEmail = email.trim().toLowerCase();
+
+    if (password.length < 8) {
+      return res.status(400).json({
+        message: "Password must be at least 8 characters"
+      });
+    }
+
+    const user = await User.findOne({ email: normalizedEmail })
 
     if (user) {
       return res.status(409).json({
@@ -29,7 +43,7 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       username: userName,
-      email,
+      email: normalizedEmail,
       password: hashedPassword,
     });
     await newUser.save();
@@ -64,7 +78,7 @@ router.post("/login", async (req, res) => {
     });
   }
 
-  
+
   const token = jwt.sign(
     { userId: user._id },
     process.env.JWT_SECRET,
@@ -92,6 +106,20 @@ router.get("/dashboard", verifyToken, (req, res) => {
     message: "Welcome to SecureFin dashboard",
     userId: req.user.userId
   });
+});
+
+router.post("/logout", (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax"
+  });
+
+  res.status(200).json({
+    status: "success",
+    message: "Logout successful"
+  });
+
 });
 
 export default router;

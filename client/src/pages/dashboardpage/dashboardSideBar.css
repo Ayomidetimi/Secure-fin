@@ -102,6 +102,19 @@
   margin: 0;
 }
 
+button.sidebar {
+  width: 100%;
+  border: none;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  background: linear-gradient(180deg, #171d3a 0%, #111a38 100%);
+}
+
+button.sidebar:active {
+  background-color: #5142c5;
+}
+
 @media (max-width: 768px) {
   .app-sidebar-shell {
     display: none;

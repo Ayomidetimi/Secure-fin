@@ -10,6 +10,8 @@ import profileIcon from '../../assets/profile-icon.svg';
 import settingsIcon from '../../assets/settings-icon.svg';
 import logoutIcon from '../../assets/logout-icon.svg';
 import { NavLink } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
 function DashboardSideBar() {
@@ -23,8 +25,26 @@ function DashboardSideBar() {
     { name: "Bills & Topups", icon: billsIcon },
     { name: "Profile", icon: profileIcon },
     { name: "Settings", icon: settingsIcon },
-    { name:"Logout", icon: logoutIcon}
+    { name: "Logout", icon: logoutIcon }
   ];
+
+  const navigate = useNavigate();
+
+  const  handleLogout = async ()=> {
+
+    try {
+      await axios.post(
+        "http://localhost:3000/auth/logout",
+        {},
+        { withCredentials: true }
+      );
+
+      navigate("/", { replace: true });
+
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  }
 
   return (
     <nav className="side-container">
@@ -43,7 +63,16 @@ function DashboardSideBar() {
             </>
           );
 
-          return item.path ? (
+          return item.name === "Logout" ? (
+            <button
+              className="sidebar"
+              key={item.name}
+              onClick={handleLogout}
+              type="button"
+            >
+              {linkContent}
+            </button>
+          ) : item.path ? (
             <NavLink
               to={item.path}
               className={({ isActive }) => `sidebar${isActive ? ' sidebar-active' : ''}`}
