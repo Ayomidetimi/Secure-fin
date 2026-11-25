@@ -4,6 +4,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import "dotenv/config";
 import cookieParser from "cookie-parser";
+import transferRouter from "./routes/transferRoutes.js";
 
 const app = express();
 
@@ -27,3 +28,4 @@ app.listen(3000, () => {
 });
 
 app.use("/auth", userRouter);
+app.use("/transfer", transferRouter);

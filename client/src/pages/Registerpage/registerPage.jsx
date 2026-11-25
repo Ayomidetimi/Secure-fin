@@ -2,7 +2,7 @@ import eyeIcon from '../../assets/eye-solid-full.svg';
 import eyeSlash from '../../assets/eye-slash-icon.png';
 import { useState } from "react";
 import './registerPage.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function RegisterPage () {
@@ -13,7 +13,7 @@ function RegisterPage () {
   const [ email, setEmail ] = useState();
   const [ password, setpassword ] = useState();
   const [ password2, setPassword2 ] = useState();
-
+  const navigate = useNavigate();
 
   const passwordVisible = ()=> {
     setShowpassword(!showPassword);
@@ -35,6 +35,7 @@ function RegisterPage () {
       password2: password2,
     }).then((response)=> {
       console.log(response.data)
+      navigate("/")
     }).catch((err) => {
       console.log(err)
     })

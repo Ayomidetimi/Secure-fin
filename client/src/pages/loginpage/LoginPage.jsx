@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import eyeIcon from '../../assets/eye-solid-full.svg'
 import eyeSlash from '../../assets/eye-slash-icon.png'
 import { useState } from 'react';
 import Axios from 'axios'
-import { useNavigate } from 'react-router-dom';
 
 
 function LoginPage() {
