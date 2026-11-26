@@ -51,7 +51,7 @@
 
 .login-button {
   display: flex;
-  background-color: rgb(91, 50, 214);
+  background-color: red;
   height: 40px;
   border-radius: 8px;
   color: black;
